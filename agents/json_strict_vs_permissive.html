@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>compare_implementations(json_strict_vs_permissive) — codeitall</title>
+  <meta name="description" content="Cross-implementation behavior table for the json_strict_vs_permissive probe family on Rust. 4 probed candidates. Deterministic substrate; no LLM in the request-response path.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents/json_strict_vs_permissive.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "codeitall compare_implementations(json_strict_vs_permissive) — Rust",
+  "description": "Cross-implementation behavior table for the 'json_strict_vs_permissive' probe family on the Rust crates.io corpus. N=4 probed candidates; observations are verbatim from the substrate's probe_runs + probe_observations rows.",
+  "variableMeasured": [
+    "input",
+    "outcome",
+    "value_repr",
+    "error_repr"
+  ],
+  "isAccessibleForFree": true,
+  "license": "Free to query through the hosted service. Substrate not redistributed.",
+  "creator": {
+    "@type": "Organization",
+    "name": "codeitall"
+  },
+  "url": "https://api.codeitall.dev/v1/compare_implementations?task=json_strict_vs_permissive",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://api.codeitall.dev/openapi.json"
+    }
+  ],
+  "result": {
+    "tool": "compare_implementations",
+    "language": "rust",
+    "family": "json_strict_vs_permissive",
+    "n_probed_candidates": 4,
+    "n_attempted": 4,
+    "probe_template_version": "phase-1.10.A/v0.1.0",
+    "input_set_sha256": "c8b9a81ba1981f04b497053ae942e77107c2e0cd038397d0fd848f5648f276ee",
+    "implementations": [
+      {
+        "crate_name": "deser-hjson",
+        "crate_version": "2.2.5",
+        "fn_name": "from_str",
+        "probe_run_id": 523,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Syntax { line: 1, col: 1, code: Eof, at: \"\" }"
+          },
+          {
+            "input": "﻿{}",
+            "outcome": "ok",
+            "value_repr": "String(\"\\u{feff}{}\")",
+            "error_repr": null
+          },
+          {
+            "input": "[]",
+            "outcome": "ok",
+            "value_repr": "Array []",
+            "error_repr": null
+          },
+          {
+            "input": "{",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Syntax { line: 1, col: 2, code: Eof, at: \"\" }"
+          },
+          {
+            "input": "{}",
+            "outcome": "ok",
+            "value_repr": "Object {}",
+            "error_repr": null
+          },
+          {
+            "input": "[1,2,3,]",
+            "outcome": "ok",
+            "value_repr": "Array [Number(1), Number(2), Number(3)]",
+            "error_repr": null
+          },
+          {
+            "input": "[1,2,3]",
+            "outcome": "ok",
+            "value_repr": "Array [Number(1), Number(2), Number(3)]",
+            "error_repr": null
+          },
+          {
+            "input": "12345678901234567890",
+            "outcome": "ok",
+            "value_repr": "Number(12345678901234567890)",
+            "error_repr": null
+          },
+          {
+            "input": "3.14",
+            "outcome": "ok",
+            "value_repr": "Number(3.14)",
+            "error_repr": null
+          },
+          {
+            "input": "42",
+            "outcome": "ok",
+            "value_repr": "Number(42)",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{'a':1}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{a:1}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,\"a\":2}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(2)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,\"b\":2}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1), \"b\": Number(2)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1 /* comment */}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1 // comment\n}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":\"\\uD834\"}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Syntax { line: 1, col: 13, code: InvalidEscapeSequence, at: \"\\\"}\" }"
+          },
+          {
+            "input": "false",
+            "outcome": "ok",
+            "value_repr": "Bool(false)",
+            "error_repr": null
+          },
+          {
+            "input": "\"hello\"",
+            "outcome": "ok",
+            "value_repr": "String(\"hello\")",
+            "error_repr": null
+          },
+          {
+            "input": "Infinity",
+            "outcome": "ok",
+            "value_repr": "String(\"Infinity\")",
+            "error_repr": null
+          },
+          {
+            "input": "NaN",
+            "outcome": "ok",
+            "value_repr": "String(\"NaN\")",
+            "error_repr": null
+          },
+          {
+            "input": "null",
+            "outcome": "ok",
+            "value_repr": "Null",
+            "error_repr": null
+          },
+          {
+            "input": "true",
+            "outcome": "ok",
+            "value_repr": "Bool(true)",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "json",
+        "crate_version": "0.12.4",
+        "fn_name": "parse",
+        "probe_run_id": 521,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedEndOfJson"
+          },
+          {
+            "input": "﻿{}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: '\\u{feff}', line: 1, column: 1 }"
+          },
+          {
+            "input": "[]",
+            "outcome": "ok",
+            "value_repr": "Array([])",
+            "error_repr": null
+          },
+          {
+            "input": "{",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedEndOfJson"
+          },
+          {
+            "input": "{}",
+            "outcome": "ok",
+            "value_repr": "Object(Object { store: [] })",
+            "error_repr": null
+          },
+          {
+            "input": "[1,2,3,]",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: ']', line: 1, column: 8 }"
+          },
+          {
+            "input": "[1,2,3]",
+            "outcome": "ok",
+            "value_repr": "Array([Number(Number { category: 1, exponent: 0, mantissa: 1 }), Number(Number { category: 1, exponent: 0, mantissa: 2 }), Number(Number { category: 1, exponent: 0, mantissa: 3 })])",
+            "error_repr": null
+          },
+          {
+            "input": "12345678901234567890",
+            "outcome": "ok",
+            "value_repr": "Number(Number { category: 1, exponent: 0, mantissa: 12345678901234567890 })",
+            "error_repr": null
+          },
+          {
+            "input": "3.14",
+            "outcome": "ok",
+            "value_repr": "Number(Number { category: 1, exponent: -2, mantissa: 314 })",
+            "error_repr": null
+          },
+          {
+            "input": "42",
+            "outcome": "ok",
+            "value_repr": "Number(Number { category: 1, exponent: 0, mantissa: 42 })",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: '}', line: 1, column: 8 }"
+          },
+          {
+            "input": "{'a':1}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: '\\'', line: 1, column: 2 }"
+          },
+          {
+            "input": "{a:1}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: 'a', line: 1, column: 2 }"
+          },
+          {
+            "input": "{\"a\":1,\"a\":2}",
+            "outcome": "ok",
+            "value_repr": "Object(Object { store: [(\"a\", Number(Number { category: 1, exponent: 0, mantissa: 2 }), 0, 0)] })",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,\"b\":2}",
+            "outcome": "ok",
+            "value_repr": "Object(Object { store: [(\"a\", Number(Number { category: 1, exponent: 0, mantissa: 1 }), 0, 1), (\"b\", Number(Number { category: 1, exponent: 0, mantissa: 2 }), 0, 0)] })",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1 /* comment */}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: '/', line: 1, column: 8 }"
+          },
+          {
+            "input": "{\"a\":1 // comment\n}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: '/', line: 1, column: 8 }"
+          },
+          {
+            "input": "{\"a\":\"\\uD834\"}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: '\"', line: 1, column: 13 }"
+          },
+          {
+            "input": "false",
+            "outcome": "ok",
+            "value_repr": "Boolean(false)",
+            "error_repr": null
+          },
+          {
+            "input": "\"hello\"",
+            "outcome": "ok",
+            "value_repr": "Short(\"hello\")",
+            "error_repr": null
+          },
+          {
+            "input": "Infinity",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: 'I', line: 1, column: 1 }"
+          },
+          {
+            "input": "NaN",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedCharacter { ch: 'N', line: 1, column: 1 }"
+          },
+          {
+            "input": "null",
+            "outcome": "ok",
+            "value_repr": "Null",
+            "error_repr": null
+          },
+          {
+            "input": "true",
+            "outcome": "ok",
+            "value_repr": "Boolean(true)",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "json5",
+        "crate_version": "1.3.1",
+        "fn_name": "from_str",
+        "probe_run_id": 522,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { inner: ErrorInner { content: Code(EofParsingValue), position: None } }"
+          },
+          {
+            "input": "﻿{}",
+            "outcome": "ok",
+            "value_repr": "Object {}",
+            "error_repr": null
+          },
+          {
+            "input": "[]",
+            "outcome": "ok",
+            "value_repr": "Array []",
+            "error_repr": null
+          },
+          {
+            "input": "{",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { inner: ErrorInner { content: Code(EofParsingObject), position: Some(Position { line: 0, column: 0 }) } }"
+          },
+          {
+            "input": "{}",
+            "outcome": "ok",
+            "value_repr": "Object {}",
+            "error_repr": null
+          },
+          {
+            "input": "[1,2,3,]",
+            "outcome": "ok",
+            "value_repr": "Array [Number(1), Number(2), Number(3)]",
+            "error_repr": null
+          },
+          {
+            "input": "[1,2,3]",
+            "outcome": "ok",
+            "value_repr": "Array [Number(1), Number(2), Number(3)]",
+            "error_repr": null
+          },
+          {
+            "input": "12345678901234567890",
+            "outcome": "ok",
+            "value_repr": "Number(12345678901234567890)",
+            "error_repr": null
+          },
+          {
+            "input": "3.14",
+            "outcome": "ok",
+            "value_repr": "Number(3.14)",
+            "error_repr": null
+          },
+          {
+            "input": "42",
+            "outcome": "ok",
+            "value_repr": "Number(42)",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{'a':1}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{a:1}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,\"a\":2}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(2)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,\"b\":2}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1), \"b\": Number(2)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1 /* comment */}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1 // comment\n}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":\"\\uD834\"}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { inner: ErrorInner { content: Code(InvalidEscapeSequence), position: Some(Position { line: 0, column: 12 }) } }"
+          },
+          {
+            "input": "false",
+            "outcome": "ok",
+            "value_repr": "Bool(false)",
+            "error_repr": null
+          },
+          {
+            "input": "\"hello\"",
+            "outcome": "ok",
+            "value_repr": "String(\"hello\")",
+            "error_repr": null
+          },
+          {
+            "input": "Infinity",
+            "outcome": "ok",
+            "value_repr": "Null",
+            "error_repr": null
+          },
+          {
+            "input": "NaN",
+            "outcome": "ok",
+            "value_repr": "Null",
+            "error_repr": null
+          },
+          {
+            "input": "null",
+            "outcome": "ok",
+            "value_repr": "Null",
+            "error_repr": null
+          },
+          {
+            "input": "true",
+            "outcome": "ok",
+            "value_repr": "Bool(true)",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "serde_json",
+        "crate_version": "1.0.149",
+        "fn_name": "from_str",
+        "probe_run_id": 520,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"EOF while parsing a value\", line: 1, column: 0)"
+          },
+          {
+            "input": "﻿{}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"expected value\", line: 1, column: 1)"
+          },
+          {
+            "input": "[]",
+            "outcome": "ok",
+            "value_repr": "Array []",
+            "error_repr": null
+          },
+          {
+            "input": "{",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"EOF while parsing an object\", line: 1, column: 1)"
+          },
+          {
+            "input": "{}",
+            "outcome": "ok",
+            "value_repr": "Object {}",
+            "error_repr": null
+          },
+          {
+            "input": "[1,2,3,]",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"trailing comma\", line: 1, column: 8)"
+          },
+          {
+            "input": "[1,2,3]",
+            "outcome": "ok",
+            "value_repr": "Array [Number(1), Number(2), Number(3)]",
+            "error_repr": null
+          },
+          {
+            "input": "12345678901234567890",
+            "outcome": "ok",
+            "value_repr": "Number(12345678901234567890)",
+            "error_repr": null
+          },
+          {
+            "input": "3.14",
+            "outcome": "ok",
+            "value_repr": "Number(3.14)",
+            "error_repr": null
+          },
+          {
+            "input": "42",
+            "outcome": "ok",
+            "value_repr": "Number(42)",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"trailing comma\", line: 1, column: 8)"
+          },
+          {
+            "input": "{'a':1}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"key must be a string\", line: 1, column: 2)"
+          },
+          {
+            "input": "{a:1}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"key must be a string\", line: 1, column: 2)"
+          },
+          {
+            "input": "{\"a\":1,\"a\":2}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(2)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1,\"b\":2}",
+            "outcome": "ok",
+            "value_repr": "Object {\"a\": Number(1), \"b\": Number(2)}",
+            "error_repr": null
+          },
+          {
+            "input": "{\"a\":1 /* comment */}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"expected `,` or `}`\", line: 1, column: 8)"
+          },
+          {
+            "input": "{\"a\":1 // comment\n}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"expected `,` or `}`\", line: 1, column: 8)"
+          },
+          {
+            "input": "{\"a\":\"\\uD834\"}",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"unexpected end of hex escape\", line: 1, column: 13)"
+          },
+          {
+            "input": "false",
+            "outcome": "ok",
+            "value_repr": "Bool(false)",
+            "error_repr": null
+          },
+          {
+            "input": "\"hello\"",
+            "outcome": "ok",
+            "value_repr": "String(\"hello\")",
+            "error_repr": null
+          },
+          {
+            "input": "Infinity",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"expected value\", line: 1, column: 1)"
+          },
+          {
+            "input": "NaN",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(\"expected value\", line: 1, column: 1)"
+          },
+          {
+            "input": "null",
+            "outcome": "ok",
+            "value_repr": "Null",
+            "error_repr": null
+          },
+          {
+            "input": "true",
+            "outcome": "ok",
+            "value_repr": "Bool(true)",
+            "error_repr": null
+          }
+        ]
+      }
+    ]
+  }
+}
+  </script>
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 84ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <p><a href="/for-ai-agents.html">← For AI Agents</a></p>
+  <h1>compare_implementations(task=<code>json_strict_vs_permissive</code>)</h1>
+  <p><strong>4 probed candidates</strong> (4 attempted runs). Observations are verbatim from the substrate's <code>probe_runs</code> + <code>probe_observations</code> rows.</p>
+  <p>Call this endpoint over MCP or HTTP:</p>
+  <pre><code>POST /v1/compare_implementations
+{"task": "json_strict_vs_permissive"}</code></pre>
+  <h2>Implementations</h2>
+  <table>
+    <thead><tr><th>crate</th><th>version</th><th>fn_name</th><th>observations</th></tr></thead>
+    <tbody><tr><td><code>deser-hjson</code></td><td><code>2.2.5</code></td><td><code>from_str</code></td><td>24</td></tr><tr><td><code>json</code></td><td><code>0.12.4</code></td><td><code>parse</code></td><td>24</td></tr><tr><td><code>json5</code></td><td><code>1.3.1</code></td><td><code>from_str</code></td><td>24</td></tr><tr><td><code>serde_json</code></td><td><code>1.0.149</code></td><td><code>from_str</code></td><td>24</td></tr></tbody>
+  </table>
+  <p>The complete observation table — every (input, outcome, value_repr, error_repr) cell — is embedded above as <code>application/ld+json</code> structured data so an agent reading this page programmatically can lift the table without calling the API.</p>
+</body>
+</html>

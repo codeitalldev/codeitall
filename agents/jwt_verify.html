@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>compare_implementations(jwt_verify) — codeitall</title>
+  <meta name="description" content="Cross-implementation behavior table for the jwt_verify probe family on Rust. 1 probed candidates. Deterministic substrate; no LLM in the request-response path.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents/jwt_verify.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "codeitall compare_implementations(jwt_verify) — Rust",
+  "description": "Cross-implementation behavior table for the 'jwt_verify' probe family on the Rust crates.io corpus. N=1 probed candidates; observations are verbatim from the substrate's probe_runs + probe_observations rows.",
+  "variableMeasured": [
+    "input",
+    "outcome",
+    "value_repr",
+    "error_repr"
+  ],
+  "isAccessibleForFree": true,
+  "license": "Free to query through the hosted service. Substrate not redistributed.",
+  "creator": {
+    "@type": "Organization",
+    "name": "codeitall"
+  },
+  "url": "https://api.codeitall.dev/v1/compare_implementations?task=jwt_verify",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://api.codeitall.dev/openapi.json"
+    }
+  ],
+  "result": {
+    "tool": "compare_implementations",
+    "language": "rust",
+    "family": "jwt_verify",
+    "n_probed_candidates": 1,
+    "n_attempted": 1,
+    "probe_template_version": "phase-1.10.B/v0.1.0",
+    "input_set_sha256": "be42140591bc62240f34e7767b16eea905b5eff6e6b31bef4ef5955961b1d451",
+    "implementations": [
+      {
+        "crate_name": "jsonwebtoken",
+        "crate_version": "10.4.0",
+        "fn_name": "probe_jsonwebtoken_decode",
+        "probe_run_id": 524,
+        "observations": [
+          {
+            "input": "alg_none",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"alg=none rejected by orchestrator (RFC 8725 §3.1)\""
+          },
+          {
+            "input": "empty_token",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(InvalidToken)\""
+          },
+          {
+            "input": "future_nbf",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(InvalidSignature)\""
+          },
+          {
+            "input": "garbage_token",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(Base64(InvalidLastSymbol(2, 116)))\""
+          },
+          {
+            "input": "hs256_expired",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(InvalidSignature)\""
+          },
+          {
+            "input": "hs256_valid",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(InvalidSignature)\""
+          },
+          {
+            "input": "malformed_b64_payload",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(InvalidSignature)\""
+          },
+          {
+            "input": "no_signature",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(InvalidToken)\""
+          },
+          {
+            "input": "wrong_key",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(InvalidSignature)\""
+          },
+          {
+            "input": "wrong_signature",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error(Base64(InvalidLastSymbol(29, 69)))\""
+          }
+        ]
+      }
+    ]
+  }
+}
+  </script>
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 84ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <p><a href="/for-ai-agents.html">← For AI Agents</a></p>
+  <h1>compare_implementations(task=<code>jwt_verify</code>)</h1>
+  <p><strong>1 probed candidates</strong> (1 attempted runs). Observations are verbatim from the substrate's <code>probe_runs</code> + <code>probe_observations</code> rows.</p>
+  <p>Call this endpoint over MCP or HTTP:</p>
+  <pre><code>POST /v1/compare_implementations
+{"task": "jwt_verify"}</code></pre>
+  <h2>Implementations</h2>
+  <table>
+    <thead><tr><th>crate</th><th>version</th><th>fn_name</th><th>observations</th></tr></thead>
+    <tbody><tr><td><code>jsonwebtoken</code></td><td><code>10.4.0</code></td><td><code>probe_jsonwebtoken_decode</code></td><td>10</td></tr></tbody>
+  </table>
+  <p>The complete observation table — every (input, outcome, value_repr, error_repr) cell — is embedded above as <code>application/ld+json</code> structured data so an agent reading this page programmatically can lift the table without calling the API.</p>
+</body>
+</html>

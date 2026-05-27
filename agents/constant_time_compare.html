@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>compare_implementations(constant_time_compare) — codeitall</title>
+  <meta name="description" content="Cross-implementation behavior table for the constant_time_compare probe family on Rust. 18 probed candidates. Deterministic substrate; no LLM in the request-response path.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents/constant_time_compare.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "codeitall compare_implementations(constant_time_compare) — Rust",
+  "description": "Cross-implementation behavior table for the 'constant_time_compare' probe family on the Rust crates.io corpus. N=18 probed candidates; observations are verbatim from the substrate's probe_runs + probe_observations rows.",
+  "variableMeasured": [
+    "input",
+    "outcome",
+    "value_repr",
+    "error_repr"
+  ],
+  "isAccessibleForFree": true,
+  "license": "Free to query through the hosted service. Substrate not redistributed.",
+  "creator": {
+    "@type": "Organization",
+    "name": "codeitall"
+  },
+  "url": "https://api.codeitall.dev/v1/compare_implementations?task=constant_time_compare",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://api.codeitall.dev/openapi.json"
+    }
+  ],
+  "result": {
+    "tool": "compare_implementations",
+    "language": "rust",
+    "family": "constant_time_compare",
+    "n_probed_candidates": 18,
+    "n_attempted": 99,
+    "probe_template_version": "phase-1.7/probe-v0.1.0",
+    "input_set_sha256": "e58279846cc25ea4f71b66c522d9b2d8c56a6ba2c929d0749ad10c2d4fc9c183",
+    "implementations": [
+      {
+        "crate_name": "age-otp",
+        "crate_version": "0.2.0",
+        "fn_name": "ct_eq",
+        "probe_run_id": 497,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "ash-core",
+        "crate_version": "2.3.6",
+        "fn_name": "ash_timing_safe_equal",
+        "probe_run_id": 467,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "ash-core",
+        "crate_version": "2.3.6",
+        "fn_name": "ash_timing_safe_equal_fixed_length",
+        "probe_run_id": 468,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "ashcore",
+        "crate_version": "1.0.1",
+        "fn_name": "ash_timing_safe_equal",
+        "probe_run_id": 470,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "ashcore",
+        "crate_version": "1.0.1",
+        "fn_name": "ash_timing_safe_equal_fixed_length",
+        "probe_run_id": 471,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "authrs",
+        "crate_version": "0.1.2",
+        "fn_name": "constant_time_compare",
+        "probe_run_id": 435,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "axon-csys",
+        "crate_version": "0.1.2",
+        "fn_name": "ct_eq",
+        "probe_run_id": 445,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "cat-token",
+        "crate_version": "0.1.2",
+        "fn_name": "constant_time_eq",
+        "probe_run_id": 484,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "cc_validator",
+        "crate_version": "0.1.0",
+        "fn_name": "constant_time_eq",
+        "probe_run_id": 466,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "chie-crypto",
+        "crate_version": "0.2.0",
+        "fn_name": "constant_time_eq",
+        "probe_run_id": 440,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "chie-crypto",
+        "crate_version": "0.2.0",
+        "fn_name": "constant_time_eq_v2",
+        "probe_run_id": 441,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "chie-crypto",
+        "crate_version": "0.2.0",
+        "fn_name": "constant_time_memcmp",
+        "probe_run_id": 438,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "chie-crypto",
+        "crate_version": "0.2.0",
+        "fn_name": "ct_eq",
+        "probe_run_id": 439,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "clasp-crypto",
+        "crate_version": "4.5.0",
+        "fn_name": "constant_time_eq",
+        "probe_run_id": 452,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "constant_time_eq",
+        "crate_version": "0.5.0",
+        "fn_name": "constant_time_eq",
+        "probe_run_id": 408,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "foodshare-crypto",
+        "crate_version": "1.3.1",
+        "fn_name": "constant_time_compare",
+        "probe_run_id": 476,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "onionlink-core",
+        "crate_version": "0.1.2",
+        "fn_name": "ct_equal",
+        "probe_run_id": 490,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "rscryptodome-bctf",
+        "crate_version": "0.1.0",
+        "fn_name": "constant_time_eq",
+        "probe_run_id": 426,
+        "observations": [
+          {
+            "input": "|",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "0|0",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abc",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "ABC|abc",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abcd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "abc|abd",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_password",
+            "outcome": "ok",
+            "value_repr": "true",
+            "error_repr": null
+          },
+          {
+            "input": "long_secret_password|long_secret_passwordx",
+            "outcome": "ok",
+            "value_repr": "false",
+            "error_repr": null
+          }
+        ]
+      }
+    ]
+  }
+}
+  </script>
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 84ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <p><a href="/for-ai-agents.html">← For AI Agents</a></p>
+  <h1>compare_implementations(task=<code>constant_time_compare</code>)</h1>
+  <p><strong>18 probed candidates</strong> (99 attempted runs). Observations are verbatim from the substrate's <code>probe_runs</code> + <code>probe_observations</code> rows.</p>
+  <p>Call this endpoint over MCP or HTTP:</p>
+  <pre><code>POST /v1/compare_implementations
+{"task": "constant_time_compare"}</code></pre>
+  <h2>Implementations</h2>
+  <table>
+    <thead><tr><th>crate</th><th>version</th><th>fn_name</th><th>observations</th></tr></thead>
+    <tbody><tr><td><code>age-otp</code></td><td><code>0.2.0</code></td><td><code>ct_eq</code></td><td>10</td></tr><tr><td><code>ash-core</code></td><td><code>2.3.6</code></td><td><code>ash_timing_safe_equal</code></td><td>10</td></tr><tr><td><code>ash-core</code></td><td><code>2.3.6</code></td><td><code>ash_timing_safe_equal_fixed_length</code></td><td>10</td></tr><tr><td><code>ashcore</code></td><td><code>1.0.1</code></td><td><code>ash_timing_safe_equal</code></td><td>10</td></tr><tr><td><code>ashcore</code></td><td><code>1.0.1</code></td><td><code>ash_timing_safe_equal_fixed_length</code></td><td>10</td></tr><tr><td><code>authrs</code></td><td><code>0.1.2</code></td><td><code>constant_time_compare</code></td><td>10</td></tr><tr><td><code>axon-csys</code></td><td><code>0.1.2</code></td><td><code>ct_eq</code></td><td>10</td></tr><tr><td><code>cat-token</code></td><td><code>0.1.2</code></td><td><code>constant_time_eq</code></td><td>10</td></tr><tr><td><code>cc_validator</code></td><td><code>0.1.0</code></td><td><code>constant_time_eq</code></td><td>10</td></tr><tr><td><code>chie-crypto</code></td><td><code>0.2.0</code></td><td><code>constant_time_eq</code></td><td>10</td></tr><tr><td><code>chie-crypto</code></td><td><code>0.2.0</code></td><td><code>constant_time_eq_v2</code></td><td>10</td></tr><tr><td><code>chie-crypto</code></td><td><code>0.2.0</code></td><td><code>constant_time_memcmp</code></td><td>10</td></tr><tr><td><code>chie-crypto</code></td><td><code>0.2.0</code></td><td><code>ct_eq</code></td><td>10</td></tr><tr><td><code>clasp-crypto</code></td><td><code>4.5.0</code></td><td><code>constant_time_eq</code></td><td>10</td></tr><tr><td><code>constant_time_eq</code></td><td><code>0.5.0</code></td><td><code>constant_time_eq</code></td><td>10</td></tr><tr><td><code>foodshare-crypto</code></td><td><code>1.3.1</code></td><td><code>constant_time_compare</code></td><td>10</td></tr><tr><td><code>onionlink-core</code></td><td><code>0.1.2</code></td><td><code>ct_equal</code></td><td>10</td></tr><tr><td><code>rscryptodome-bctf</code></td><td><code>0.1.0</code></td><td><code>constant_time_eq</code></td><td>10</td></tr></tbody>
+  </table>
+  <p>The complete observation table — every (input, outcome, value_repr, error_repr) cell — is embedded above as <code>application/ld+json</code> structured data so an agent reading this page programmatically can lift the table without calling the API.</p>
+</body>
+</html>

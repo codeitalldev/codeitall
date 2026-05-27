@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>compare_implementations(aead_encrypt_decrypt) — codeitall</title>
+  <meta name="description" content="Cross-implementation behavior table for the aead_encrypt_decrypt probe family on Rust. 1 probed candidates. Deterministic substrate; no LLM in the request-response path.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents/aead_encrypt_decrypt.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "codeitall compare_implementations(aead_encrypt_decrypt) — Rust",
+  "description": "Cross-implementation behavior table for the 'aead_encrypt_decrypt' probe family on the Rust crates.io corpus. N=1 probed candidates; observations are verbatim from the substrate's probe_runs + probe_observations rows.",
+  "variableMeasured": [
+    "input",
+    "outcome",
+    "value_repr",
+    "error_repr"
+  ],
+  "isAccessibleForFree": true,
+  "license": "Free to query through the hosted service. Substrate not redistributed.",
+  "creator": {
+    "@type": "Organization",
+    "name": "codeitall"
+  },
+  "url": "https://api.codeitall.dev/v1/compare_implementations?task=aead_encrypt_decrypt",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://api.codeitall.dev/openapi.json"
+    }
+  ],
+  "result": {
+    "tool": "compare_implementations",
+    "language": "rust",
+    "family": "aead_encrypt_decrypt",
+    "n_probed_candidates": 1,
+    "n_attempted": 1,
+    "probe_template_version": "phase-1.10.B/v0.1.0",
+    "input_set_sha256": "9137c5387542bf9c2ab684cb4908ed7f574eb471c244ca89d3199ff2e6b17d8f",
+    "implementations": [
+      {
+        "crate_name": "aes-gcm",
+        "crate_version": "0.10.3",
+        "fn_name": "probe_aes_gcm_decrypt",
+        "probe_run_id": 528,
+        "observations": [
+          {
+            "input": "aes_gcm_aad_tampered",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error\""
+          },
+          {
+            "input": "aes_gcm_empty_ct",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error\""
+          },
+          {
+            "input": "aes_gcm_ok",
+            "outcome": "ok",
+            "value_repr": "plaintext_len=24",
+            "error_repr": null
+          },
+          {
+            "input": "aes_gcm_tag_mismatch",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error\""
+          },
+          {
+            "input": "aes_gcm_truncated_ct",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error\""
+          },
+          {
+            "input": "aes_gcm_wrong_key",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error\""
+          },
+          {
+            "input": "aes_gcm_wrong_nonce",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Error\""
+          },
+          {
+            "input": "chacha20_poly1305_ok",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"aes-gcm probe skips ChaCha20-Poly1305 scenarios\""
+          },
+          {
+            "input": "nonce_reuse_first",
+            "outcome": "ok",
+            "value_repr": "plaintext_len=24",
+            "error_repr": null
+          },
+          {
+            "input": "nonce_reuse_second",
+            "outcome": "ok",
+            "value_repr": "plaintext_len=32",
+            "error_repr": null
+          }
+        ]
+      }
+    ]
+  }
+}
+  </script>
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 84ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <p><a href="/for-ai-agents.html">← For AI Agents</a></p>
+  <h1>compare_implementations(task=<code>aead_encrypt_decrypt</code>)</h1>
+  <p><strong>1 probed candidates</strong> (1 attempted runs). Observations are verbatim from the substrate's <code>probe_runs</code> + <code>probe_observations</code> rows.</p>
+  <p>Call this endpoint over MCP or HTTP:</p>
+  <pre><code>POST /v1/compare_implementations
+{"task": "aead_encrypt_decrypt"}</code></pre>
+  <h2>Implementations</h2>
+  <table>
+    <thead><tr><th>crate</th><th>version</th><th>fn_name</th><th>observations</th></tr></thead>
+    <tbody><tr><td><code>aes-gcm</code></td><td><code>0.10.3</code></td><td><code>probe_aes_gcm_decrypt</code></td><td>10</td></tr></tbody>
+  </table>
+  <p>The complete observation table — every (input, outcome, value_repr, error_repr) cell — is embedded above as <code>application/ld+json</code> structured data so an agent reading this page programmatically can lift the table without calling the API.</p>
+</body>
+</html>

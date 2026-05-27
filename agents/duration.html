@@ -1,0 +1,5163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>compare_implementations(duration) — codeitall</title>
+  <meta name="description" content="Cross-implementation behavior table for the duration probe family on Rust. 38 probed candidates. Deterministic substrate; no LLM in the request-response path.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents/duration.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "codeitall compare_implementations(duration) — Rust",
+  "description": "Cross-implementation behavior table for the 'duration' probe family on the Rust crates.io corpus. N=38 probed candidates; observations are verbatim from the substrate's probe_runs + probe_observations rows.",
+  "variableMeasured": [
+    "input",
+    "outcome",
+    "value_repr",
+    "error_repr"
+  ],
+  "isAccessibleForFree": true,
+  "license": "Free to query through the hosted service. Substrate not redistributed.",
+  "creator": {
+    "@type": "Organization",
+    "name": "codeitall"
+  },
+  "url": "https://api.codeitall.dev/v1/compare_implementations?task=duration",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://api.codeitall.dev/openapi.json"
+    }
+  ],
+  "result": {
+    "tool": "compare_implementations",
+    "language": "rust",
+    "family": "duration",
+    "n_probed_candidates": 38,
+    "n_attempted": 200,
+    "probe_template_version": "phase-1.7/probe-v0.1.0",
+    "input_set_sha256": "a69e9d11c8f78930842714a19397999120572183b422731d4840041c93ba565c",
+    "implementations": [
+      {
+        "crate_name": "ambient_time",
+        "crate_version": "0.3.1",
+        "fn_name": "parse_duration",
+        "probe_run_id": 39,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "0ns",
+            "error_repr": null
+          },
+          {
+            "input": "   ",
+            "outcome": "ok",
+            "value_repr": "0ns",
+            "error_repr": null
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MalformedSuffix(\"d\")"
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MalformedSuffix(\"M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MalformedSuffix(\"w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MalformedSuffix(\"y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MalformedSuffix(\"ns\")"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MissingIntegral(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MissingIntegral(\"P\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MissingIntegral(\"P\")"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MissingIntegral(\"PT\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "cable-tunnel-server-common",
+        "crate_version": "0.1.0",
+        "fn_name": "parse_duration_secs",
+        "probe_run_id": 43,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: Empty }"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          }
+        ]
+      },
+      {
+        "crate_name": "conf-extra",
+        "crate_version": "0.1.0",
+        "fn_name": "parse_duration",
+        "probe_run_id": 110,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"invalid duration: \\\")\""
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"invalid duration:    \\\")\""
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"unknown unit d in duration 1d\\\")\""
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"unknown unit h  in duration 1h 30m\\\")\""
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"unknown unit M in duration 1M\\\")\""
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"unknown unit w in duration 1w\\\")\""
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"unknown unit y in duration 1y\\\")\""
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"missing unit in duration: 30\\\")\""
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"invalid duration:   30s  \\\")\""
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"invalid duration: garbage\\\")\""
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"invalid duration: P1Y2M3DT4H5M6S\\\")\""
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"invalid duration: P2D\\\")\""
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"ParseError(\\\"invalid duration: PT1H30M\\\")\""
+          }
+        ]
+      },
+      {
+        "crate_name": "cronwait",
+        "crate_version": "0.1.0",
+        "fn_name": "get_next_wait_duration",
+        "probe_run_id": 124,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"\\n^\\n\") }"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"   \\n   ^\\n\") }"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"0.5s\\n ^\\n\") }"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"1.5h\\n ^\\n\") }"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"1d\\n ^\\nThe 'Minutes' field does not support using names. 'd' specified.\") }"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"1h\\n ^\\nThe 'Minutes' field does not support using names. 'h' specified.\") }"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"1h 30m\\n ^\\nThe 'Minutes' field does not support using names. 'h' specified.\") }"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"1M\\n ^\\nThe 'Minutes' field does not support using names. 'M' specified.\") }"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"1w\\n ^\\nThe 'Minutes' field does not support using names. 'w' specified.\") }"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"1y\\n ^\\nThe 'Minutes' field does not support using names. 'y' specified.\") }"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"30\\n  ^\\n\") }"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"  30s  \\n    ^\\nThe 'Minutes' field does not support using names. 's' specified.\") }"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"30s\\n  ^\\nThe 'Minutes' field does not support using names. 's' specified.\") }"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"32ms\\n  ^\\nThe 'Minutes' field does not support using names. 'ms' specified.\") }"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"4.2s\\n ^\\n\") }"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"500ns\\n^\\nSeconds must be less than 59. ('500' specified.)\") }"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"5m\\n ^\\nThe 'Minutes' field does not support using names. 'm' specified.\") }"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"garbage\\n^\\nThe 'Seconds' field does not support using names. 'garbage' specified.\") }"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"P1Y2M3DT4H5M6S\\n^\\nThe 'Seconds' field does not support using names. 'P' specified.\") }"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"P2D\\n^\\nThe 'Seconds' field does not support using names. 'P' specified.\") }"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error { kind: Expression(\"PT1H30M\\n^\\nThe 'Seconds' field does not support using names. 'PT' specified.\") }"
+          }
+        ]
+      },
+      {
+        "crate_name": "cyborgtime",
+        "crate_version": "2.1.1",
+        "fn_name": "parse_duration",
+        "probe_run_id": 18,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(1)"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(1)"
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "2630016s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31557600s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit { start: 2, end: 2, unit: \"\", value: 30 }"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(1)"
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          }
+        ]
+      },
+      {
+        "crate_name": "dur",
+        "crate_version": "0.5.3",
+        "fn_name": "parse",
+        "probe_run_id": 13,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "Duration(500000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "Duration(5400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "Duration(86400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "Duration(3600000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "Duration(5400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "Duration(60000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "Duration(604800000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "Duration(31557600000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "Duration(30000000)",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "Duration(30000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "Duration(32000000)",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "Duration(4200000000)",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "Duration(500)",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "Duration(300000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          }
+        ]
+      },
+      {
+        "crate_name": "dur",
+        "crate_version": "0.5.3",
+        "fn_name": "parse_std",
+        "probe_run_id": 14,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "Duration(500000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "Duration(5400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "Duration(86400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "Duration(3600000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "Duration(5400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "Duration(60000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "Duration(604800000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "Duration(31557600000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "Duration(30000000)",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "Duration(30000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "Duration(32000000)",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "Duration(4200000000)",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "Duration(500)",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "Duration(300000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          }
+        ]
+      },
+      {
+        "crate_name": "durstr",
+        "crate_version": "0.5.1",
+        "fn_name": "parse",
+        "probe_run_id": 16,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "0ns",
+            "error_repr": null
+          },
+          {
+            "input": "   ",
+            "outcome": "ok",
+            "value_repr": "0ns",
+            "error_repr": null
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedChar('.')"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedChar('.')"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedUnit(\"d\")"
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedUnit(\"M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedUnit(\"w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedUnit(\"y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ExpectedUnit"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedChar('.')"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedUnit(\"ns\")"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ExpectedNumber"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ExpectedNumber"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ExpectedNumber"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ExpectedNumber"
+          }
+        ]
+      },
+      {
+        "crate_name": "easyenv",
+        "crate_version": "0.0.9",
+        "fn_name": "get_env_duration_seconds_optional",
+        "probe_run_id": 53,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          }
+        ]
+      },
+      {
+        "crate_name": "easyenv",
+        "crate_version": "0.0.9",
+        "fn_name": "get_env_duration_seconds_required",
+        "probe_run_id": 52,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "RequiredNotPresent"
+          }
+        ]
+      },
+      {
+        "crate_name": "fastmcp-core",
+        "crate_version": "0.3.1",
+        "fn_name": "parse_duration",
+        "probe_run_id": 178,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"\", message: \"empty string\" }"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"\", message: \"empty string\" }"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"0.5s\", message: \"unexpected character '.'\" }"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"1.5h\", message: \"unexpected character '.'\" }"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"1d\", message: \"unknown unit 'd'\" }"
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"1M\", message: \"unknown unit 'M'\" }"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"1w\", message: \"unknown unit 'w'\" }"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"1y\", message: \"unknown unit 'y'\" }"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"30\", message: \"number '30' missing unit (use s, m, h, or ms)\" }"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"4.2s\", message: \"unexpected character '.'\" }"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"500ns\", message: \"unknown unit 'n'\" }"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"garbage\", message: \"unexpected unit character 'g' without preceding number\" }"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"P1Y2M3DT4H5M6S\", message: \"unexpected unit character 'P' without preceding number\" }"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"P2D\", message: \"unexpected unit character 'P' without preceding number\" }"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseDurationError { input: \"PT1H30M\", message: \"unexpected unit character 'P' without preceding number\" }"
+          }
+        ]
+      },
+      {
+        "crate_name": "fondue",
+        "crate_version": "0.1.1",
+        "fn_name": "parse_duration",
+        "probe_run_id": 123,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "EmptyString"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "EmptyString"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"h 30m\")"
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "60s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MissingUnit"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"\")"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "fundu",
+        "crate_version": "2.0.1",
+        "fn_name": "parse_duration",
+        "probe_run_id": 8,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"   \")"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TimeUnit(1, \"Invalid time unit: 'h 30m'\")"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TimeUnit(1, \"Invalid time unit: 'M'\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TimeUnit(1, \"Invalid time unit: 'y'\")"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"  30s  \")"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"P1Y2M3DT4H5M6S\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"P2D\")"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"PT1H30M\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "fundu-gnu",
+        "crate_version": "0.3.1",
+        "fn_name": "parse",
+        "probe_run_id": 90,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"h\")"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"d\")"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"h\")"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"h 30m\")"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "Duration { is_negative: false, inner: 30s }",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"ms\")"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"ns\")"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"m\")"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"P1Y2M3DT4H5M6S\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"P2D\")"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"PT1H30M\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "fundu-gnu",
+        "crate_version": "0.3.1",
+        "fn_name": "parse_fuzzy",
+        "probe_run_id": 91,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"h\")"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"d\")"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"h\")"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"h 30m\")"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "Duration { is_negative: false, inner: 30s }",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"ms\")"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"s\")"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"ns\")"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"m\")"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"P1Y2M3DT4H5M6S\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"P2D\")"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput(\"PT1H30M\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "fyi-core",
+        "crate_version": "0.1.0",
+        "fn_name": "parse_retention",
+        "probe_run_id": 138,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"\")"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"\")"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"0.5s\")"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"1.5h\")"
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"1h 30m\")"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"1M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"1w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"1y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"32ms\")"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"4.2s\")"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"500ns\")"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"P1Y2M3DT4H5M6S\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"P2D\")"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"PT1H30M\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "go-duration",
+        "crate_version": "0.2.0",
+        "fn_name": "go_duration",
+        "probe_run_id": 57,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "GoDuration(500000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "GoDuration(5400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"d\")"
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "GoDuration(3600000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"h \")"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MissingUnit"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "GoDuration(30000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "GoDuration(32000000)",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "GoDuration(4200000000)",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "GoDuration(500)",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "GoDuration(300000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          }
+        ]
+      },
+      {
+        "crate_name": "go-duration",
+        "crate_version": "0.2.0",
+        "fn_name": "parse_go_duration",
+        "probe_run_id": 56,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "GoDuration(500000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "GoDuration(5400000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"d\")"
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "GoDuration(3600000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"h \")"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "MissingUnit"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "GoDuration(30000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "GoDuration(32000000)",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "GoDuration(4200000000)",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "GoDuration(500)",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "GoDuration(300000000000)",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration"
+          }
+        ]
+      },
+      {
+        "crate_name": "hadb-io",
+        "crate_version": "0.4.0",
+        "fn_name": "parse_duration_string",
+        "probe_run_id": 177,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty duration string"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty duration string"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration number '0.5' in '0.5s'"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration number '1.5' in '1.5h'"
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 86400, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 3600, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration number '1h 30' in '1h 30m'"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format '1M': must end with h, d, m, or s"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format '1w': must end with h, d, m, or s"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format '1y': must end with h, d, m, or s"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format '30': must end with h, d, m, or s"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 30, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 30, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration number '32m' in '32ms'"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration number '4.2' in '4.2s'"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration number '500n' in '500ns'"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 300, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format 'garbage': must end with h, d, m, or s"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format 'P1Y2M3DT4H5M6S': must end with h, d, m, or s"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format 'P2D': must end with h, d, m, or s"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration format 'PT1H30M': must end with h, d, m, or s"
+          }
+        ]
+      },
+      {
+        "crate_name": "humantime",
+        "crate_version": "2.3.0",
+        "fn_name": "parse_duration",
+        "probe_run_id": 1,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "2630016s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31557600s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit { start: 2, end: 2, unit: \"\", value: 30 }"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          }
+        ]
+      },
+      {
+        "crate_name": "humantime_to_duration",
+        "crate_version": "0.3.1",
+        "fn_name": "from_str",
+        "probe_run_id": 36,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 3600, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 5400, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 30, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 1921, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "TimeDelta { secs: 300, nanos: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidInput"
+          }
+        ]
+      },
+      {
+        "crate_name": "icalendar-duration",
+        "crate_version": "0.1.1",
+        "fn_name": "parse",
+        "probe_run_id": 24,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"\", code: Tag })"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"   \", code: Tag })"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"0.5s\", code: Tag })"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"1.5h\", code: Tag })"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"1d\", code: Tag })"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"1h\", code: Tag })"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"1h 30m\", code: Tag })"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"1M\", code: Tag })"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"1w\", code: Tag })"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"1y\", code: Tag })"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"30\", code: Tag })"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"  30s  \", code: Tag })"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"30s\", code: Tag })"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"32ms\", code: Tag })"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"4.2s\", code: Tag })"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"500ns\", code: Tag })"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"5m\", code: Tag })"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"garbage\", code: Tag })"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Error(Error { input: \"Y2M3DT4H5M6S\", code: Char })"
+          },
+          {
+            "input": "P2D",
+            "outcome": "ok",
+            "value_repr": "Rfc5545Duration { sign: Positive, weeks: 0, days: 2, hours: 0, minutes: 0, seconds: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "ok",
+            "value_repr": "Rfc5545Duration { sign: Positive, weeks: 0, days: 0, hours: 1, minutes: 30, seconds: 0 }",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "iso8601",
+        "crate_version": "0.6.3",
+        "fn_name": "duration",
+        "probe_run_id": 2,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: \""
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration:    \""
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 0.5s\""
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 1.5h\""
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 1d\""
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 1h\""
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 1h 30m\""
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 1M\""
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 1w\""
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 1y\""
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 30\""
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration:   30s  \""
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 30s\""
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 32ms\""
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 4.2s\""
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 500ns\""
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: 5m\""
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Failed to parse duration: garbage\""
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "ok",
+            "value_repr": "YMDHMS { year: 1, month: 2, day: 3, hour: 4, minute: 5, second: 6, millisecond: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "P2D",
+            "outcome": "ok",
+            "value_repr": "YMDHMS { year: 0, month: 0, day: 2, hour: 0, minute: 0, second: 0, millisecond: 0 }",
+            "error_repr": null
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "ok",
+            "value_repr": "YMDHMS { year: 0, month: 0, day: 0, hour: 1, minute: 30, second: 0, millisecond: 0 }",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "jackdauer",
+        "crate_version": "0.1.2",
+        "fn_name": "duration",
+        "probe_run_id": 30,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "0ns",
+            "error_repr": null
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31536000s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError"
+          }
+        ]
+      },
+      {
+        "crate_name": "kaishin",
+        "crate_version": "0.2.4",
+        "fn_name": "parse_interval",
+        "probe_run_id": 129,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "value was empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "value was empty"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "2630016s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31557600s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "time unit needed, for example 30sec or 30ms"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "expected number at 0"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "expected number at 0"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "expected number at 0"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "expected number at 0"
+          }
+        ]
+      },
+      {
+        "crate_name": "mi6-core",
+        "crate_version": "0.2.8",
+        "fn_name": "parse_history",
+        "probe_run_id": 134,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"\")"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"\")"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"0.5s\")"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"1.5h\")"
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"1h 30m\")"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"1M\")"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"1w\")"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"1y\")"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"32ms\")"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"4.2s\")"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber(\"500ns\")"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"P1Y2M3DT4H5M6S\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"P2D\")"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidFormat(\"PT1H30M\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "myhumantime",
+        "crate_version": "1.0.0",
+        "fn_name": "parse_duration",
+        "probe_run_id": 31,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(1)"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(1)"
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "2630016s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31557600s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit { start: 2, end: 2, unit: \"\", value: 30 }"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(1)"
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          }
+        ]
+      },
+      {
+        "crate_name": "ort-core",
+        "crate_version": "0.2.0",
+        "fn_name": "parse_duration",
+        "probe_run_id": 37,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidDuration(())"
+          }
+        ]
+      },
+      {
+        "crate_name": "parse_duration",
+        "crate_version": "2.1.1",
+        "fn_name": "parse",
+        "probe_run_id": 3,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NoValueFound(\"\")"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NoValueFound(\"   \")"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "2629746s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31556952s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NoValueFound(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"DT\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "ok",
+            "value_repr": "172800s",
+            "error_repr": null
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "ok",
+            "value_repr": "78895980s",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "parse_duration0",
+        "crate_version": "3.0.0",
+        "fn_name": "parse",
+        "probe_run_id": 28,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NoValueFound(\"\")"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NoValueFound(\"   \")"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "2629746s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31556952s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NoValueFound(\"garbage\")"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownUnit(\"DT\")"
+          },
+          {
+            "input": "P2D",
+            "outcome": "ok",
+            "value_repr": "172800s",
+            "error_repr": null
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "ok",
+            "value_repr": "78895980s",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "relhu",
+        "crate_version": "0.1.2",
+        "fn_name": "parse_duration",
+        "probe_run_id": 107,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "EmptyDurationInput"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidUnit"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidUnit"
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidUnit"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidUnit"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidUnit"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidUnit"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber"
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidUnit"
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidNumber"
+          }
+        ]
+      },
+      {
+        "crate_name": "revive-differential",
+        "crate_version": "1.0.0",
+        "fn_name": "parse_go_duration",
+        "probe_run_id": 145,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"invalid duration: \""
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"invalid duration:    \""
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit d in duration 1d\""
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit h  in duration 1h 30m\""
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit M in duration 1M\""
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit w in duration 1w\""
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit y in duration 1y\""
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"missing unit in duration: 30\""
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"invalid duration:   30s  \""
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"invalid duration: garbage\""
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"invalid duration: P1Y2M3DT4H5M6S\""
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"invalid duration: P2D\""
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"invalid duration: PT1H30M\""
+          }
+        ]
+      },
+      {
+        "crate_name": "rustutils-sleep",
+        "crate_version": "0.1.0",
+        "fn_name": "parse_duration",
+        "probe_run_id": 49,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Empty"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "2630016s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "ok",
+            "value_repr": "31557600s",
+            "error_repr": null
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "ok",
+            "value_repr": "500ns",
+            "error_repr": null
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NumberExpected(0)"
+          }
+        ]
+      },
+      {
+        "crate_name": "serde_ext_duration",
+        "crate_version": "0.2.0",
+        "fn_name": "parse_str",
+        "probe_run_id": 109,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"empty duration string\""
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"empty duration string\""
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected unit after number at position 0\""
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected unit after number at position 0\""
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "60s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit 'w' (use d, h, m, s, ms)\""
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit 'y' (use d, h, m, s, ms)\""
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected unit after number at position 0\""
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "ok",
+            "value_repr": "32ms",
+            "error_repr": null
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected unit after number at position 0\""
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"unknown unit 'ns' (use d, h, m, s, ms)\""
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected number at position 0\""
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected number at position 0\""
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected number at position 0\""
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"expected number at position 0\""
+          }
+        ]
+      },
+      {
+        "crate_name": "time_me",
+        "crate_version": "0.1.2",
+        "fn_name": "parse_as_minutes",
+        "probe_run_id": 61,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Empty }"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Empty }"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "30",
+            "outcome": "ok",
+            "value_repr": "1800s",
+            "error_repr": null
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseFloatError { kind: Invalid }"
+          }
+        ]
+      },
+      {
+        "crate_name": "winnow_iso8601",
+        "crate_version": "0.6.0",
+        "fn_name": "parse_duration",
+        "probe_run_id": 105,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"\" }"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"   \" }"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"0.5s\" }"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1.5h\" }"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1d\" }"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1h\" }"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1h 30m\" }"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1M\" }"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1w\" }"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1y\" }"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"30\" }"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"  30s  \" }"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"30s\" }"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"32ms\" }"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"4.2s\" }"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"500ns\" }"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"5m\" }"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"garbage\" }"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "ok",
+            "value_repr": "Duration { years: 1, months: 2, weeks: 0, days: 3, hours: 4, minutes: 5, seconds: 6, milliseconds: None }",
+            "error_repr": null
+          },
+          {
+            "input": "P2D",
+            "outcome": "ok",
+            "value_repr": "Duration { years: 0, months: 0, weeks: 0, days: 2, hours: 0, minutes: 0, seconds: 0, milliseconds: None }",
+            "error_repr": null
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "ok",
+            "value_repr": "Duration { years: 0, months: 0, weeks: 0, days: 0, hours: 1, minutes: 30, seconds: 0, milliseconds: None }",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "winnow_iso8601",
+        "crate_version": "0.6.0",
+        "fn_name": "parse_fractional_duration",
+        "probe_run_id": 106,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"\" }"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"   \" }"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"0.5s\" }"
+          },
+          {
+            "input": "1.5h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1.5h\" }"
+          },
+          {
+            "input": "1d",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1d\" }"
+          },
+          {
+            "input": "1h",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1h\" }"
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1h 30m\" }"
+          },
+          {
+            "input": "1M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1M\" }"
+          },
+          {
+            "input": "1w",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1w\" }"
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"1y\" }"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"30\" }"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"  30s  \" }"
+          },
+          {
+            "input": "30s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"30s\" }"
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"32ms\" }"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"4.2s\" }"
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"500ns\" }"
+          },
+          {
+            "input": "5m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"5m\" }"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InputError { input: \"garbage\" }"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "ok",
+            "value_repr": "Duration { years: 1, months: 2, weeks: 0, days: 3, hours: 4, minutes: 5, seconds: 6, milliseconds: None }",
+            "error_repr": null
+          },
+          {
+            "input": "P2D",
+            "outcome": "ok",
+            "value_repr": "Duration { years: 0, months: 0, weeks: 0, days: 2, hours: 0, minutes: 0, seconds: 0, milliseconds: None }",
+            "error_repr": null
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "ok",
+            "value_repr": "Duration { years: 0, months: 0, weeks: 0, days: 0, hours: 1, minutes: 30, seconds: 0, milliseconds: None }",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "xchecker-gate",
+        "crate_version": "1.2.0",
+        "fn_name": "parse_duration",
+        "probe_run_id": 172,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration value: \n\nCaused by:\n    cannot parse float from empty string"
+          },
+          {
+            "input": "   ",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration value: \n\nCaused by:\n    cannot parse float from empty string"
+          },
+          {
+            "input": "0.5s",
+            "outcome": "ok",
+            "value_repr": "500ms",
+            "error_repr": null
+          },
+          {
+            "input": "1.5h",
+            "outcome": "ok",
+            "value_repr": "5400s",
+            "error_repr": null
+          },
+          {
+            "input": "1d",
+            "outcome": "ok",
+            "value_repr": "86400s",
+            "error_repr": null
+          },
+          {
+            "input": "1h",
+            "outcome": "ok",
+            "value_repr": "3600s",
+            "error_repr": null
+          },
+          {
+            "input": "1h 30m",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit 'h m'. Valid units: s/m/h/d/w"
+          },
+          {
+            "input": "1M",
+            "outcome": "ok",
+            "value_repr": "60s",
+            "error_repr": null
+          },
+          {
+            "input": "1w",
+            "outcome": "ok",
+            "value_repr": "604800s",
+            "error_repr": null
+          },
+          {
+            "input": "1y",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit 'y'. Valid units: s/m/h/d/w"
+          },
+          {
+            "input": "30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit ''. Valid units: s/m/h/d/w"
+          },
+          {
+            "input": "  30s  ",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "30s",
+            "outcome": "ok",
+            "value_repr": "30s",
+            "error_repr": null
+          },
+          {
+            "input": "32ms",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit 'ms'. Valid units: s/m/h/d/w"
+          },
+          {
+            "input": "4.2s",
+            "outcome": "ok",
+            "value_repr": "4.2s",
+            "error_repr": null
+          },
+          {
+            "input": "500ns",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit 'ns'. Valid units: s/m/h/d/w"
+          },
+          {
+            "input": "5m",
+            "outcome": "ok",
+            "value_repr": "300s",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid duration value: \n\nCaused by:\n    cannot parse float from empty string"
+          },
+          {
+            "input": "P1Y2M3DT4H5M6S",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit 'pymdthms'. Valid units: s/m/h/d/w"
+          },
+          {
+            "input": "P2D",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit 'pd'. Valid units: s/m/h/d/w"
+          },
+          {
+            "input": "PT1H30M",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Unknown duration unit 'pthm'. Valid units: s/m/h/d/w"
+          }
+        ]
+      }
+    ]
+  }
+}
+  </script>
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 84ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <p><a href="/for-ai-agents.html">← For AI Agents</a></p>
+  <h1>compare_implementations(task=<code>duration</code>)</h1>
+  <p><strong>38 probed candidates</strong> (200 attempted runs). Observations are verbatim from the substrate's <code>probe_runs</code> + <code>probe_observations</code> rows.</p>
+  <p>Call this endpoint over MCP or HTTP:</p>
+  <pre><code>POST /v1/compare_implementations
+{"task": "duration"}</code></pre>
+  <h2>Implementations</h2>
+  <table>
+    <thead><tr><th>crate</th><th>version</th><th>fn_name</th><th>observations</th></tr></thead>
+    <tbody><tr><td><code>ambient_time</code></td><td><code>0.3.1</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>cable-tunnel-server-common</code></td><td><code>0.1.0</code></td><td><code>parse_duration_secs</code></td><td>21</td></tr><tr><td><code>conf-extra</code></td><td><code>0.1.0</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>cronwait</code></td><td><code>0.1.0</code></td><td><code>get_next_wait_duration</code></td><td>21</td></tr><tr><td><code>cyborgtime</code></td><td><code>2.1.1</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>dur</code></td><td><code>0.5.3</code></td><td><code>parse</code></td><td>21</td></tr><tr><td><code>dur</code></td><td><code>0.5.3</code></td><td><code>parse_std</code></td><td>21</td></tr><tr><td><code>durstr</code></td><td><code>0.5.1</code></td><td><code>parse</code></td><td>21</td></tr><tr><td><code>easyenv</code></td><td><code>0.0.9</code></td><td><code>get_env_duration_seconds_optional</code></td><td>21</td></tr><tr><td><code>easyenv</code></td><td><code>0.0.9</code></td><td><code>get_env_duration_seconds_required</code></td><td>21</td></tr><tr><td><code>fastmcp-core</code></td><td><code>0.3.1</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>fondue</code></td><td><code>0.1.1</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>fundu</code></td><td><code>2.0.1</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>fundu-gnu</code></td><td><code>0.3.1</code></td><td><code>parse</code></td><td>21</td></tr><tr><td><code>fundu-gnu</code></td><td><code>0.3.1</code></td><td><code>parse_fuzzy</code></td><td>21</td></tr><tr><td><code>fyi-core</code></td><td><code>0.1.0</code></td><td><code>parse_retention</code></td><td>21</td></tr><tr><td><code>go-duration</code></td><td><code>0.2.0</code></td><td><code>go_duration</code></td><td>21</td></tr><tr><td><code>go-duration</code></td><td><code>0.2.0</code></td><td><code>parse_go_duration</code></td><td>21</td></tr><tr><td><code>hadb-io</code></td><td><code>0.4.0</code></td><td><code>parse_duration_string</code></td><td>21</td></tr><tr><td><code>humantime</code></td><td><code>2.3.0</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>humantime_to_duration</code></td><td><code>0.3.1</code></td><td><code>from_str</code></td><td>21</td></tr><tr><td><code>icalendar-duration</code></td><td><code>0.1.1</code></td><td><code>parse</code></td><td>21</td></tr><tr><td><code>iso8601</code></td><td><code>0.6.3</code></td><td><code>duration</code></td><td>21</td></tr><tr><td><code>jackdauer</code></td><td><code>0.1.2</code></td><td><code>duration</code></td><td>21</td></tr><tr><td><code>kaishin</code></td><td><code>0.2.4</code></td><td><code>parse_interval</code></td><td>21</td></tr><tr><td><code>mi6-core</code></td><td><code>0.2.8</code></td><td><code>parse_history</code></td><td>21</td></tr><tr><td><code>myhumantime</code></td><td><code>1.0.0</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>ort-core</code></td><td><code>0.2.0</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>parse_duration</code></td><td><code>2.1.1</code></td><td><code>parse</code></td><td>21</td></tr><tr><td><code>parse_duration0</code></td><td><code>3.0.0</code></td><td><code>parse</code></td><td>21</td></tr><tr><td><code>relhu</code></td><td><code>0.1.2</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>revive-differential</code></td><td><code>1.0.0</code></td><td><code>parse_go_duration</code></td><td>21</td></tr><tr><td><code>rustutils-sleep</code></td><td><code>0.1.0</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>serde_ext_duration</code></td><td><code>0.2.0</code></td><td><code>parse_str</code></td><td>21</td></tr><tr><td><code>time_me</code></td><td><code>0.1.2</code></td><td><code>parse_as_minutes</code></td><td>21</td></tr><tr><td><code>winnow_iso8601</code></td><td><code>0.6.0</code></td><td><code>parse_duration</code></td><td>21</td></tr><tr><td><code>winnow_iso8601</code></td><td><code>0.6.0</code></td><td><code>parse_fractional_duration</code></td><td>21</td></tr><tr><td><code>xchecker-gate</code></td><td><code>1.2.0</code></td><td><code>parse_duration</code></td><td>21</td></tr></tbody>
+  </table>
+  <p>The complete observation table — every (input, outcome, value_repr, error_repr) cell — is embedded above as <code>application/ld+json</code> structured data so an agent reading this page programmatically can lift the table without calling the API.</p>
+</body>
+</html>

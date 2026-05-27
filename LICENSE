@@ -1,0 +1,16 @@
+codeitall — public surface
+
+This repository contains codeitall's public documentation and API
+specification only. It does NOT contain the codeitall substrate, the
+ingest/indexer pipeline, or the server source — those are proprietary and
+are not redistributed.
+
+Documentation and the OpenAPI specification in this repository may be
+referenced and quoted freely (e.g. for integrations and tool catalogs).
+
+The hosted API at https://api.codeitall.dev is free to query under the
+documented limits (per-IP key issuance cap and per-key daily quota). No
+warranty; provided as-is.
+
+© os8ai. All rights reserved with respect to the codeitall substrate and
+indexer, which are not included here.

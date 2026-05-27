@@ -1,0 +1,4361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>compare_implementations(base64) — codeitall</title>
+  <meta name="description" content="Cross-implementation behavior table for the base64 probe family on Rust. 39 probed candidates. Deterministic substrate; no LLM in the request-response path.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents/base64.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "codeitall compare_implementations(base64) — Rust",
+  "description": "Cross-implementation behavior table for the 'base64' probe family on the Rust crates.io corpus. N=39 probed candidates; observations are verbatim from the substrate's probe_runs + probe_observations rows.",
+  "variableMeasured": [
+    "input",
+    "outcome",
+    "value_repr",
+    "error_repr"
+  ],
+  "isAccessibleForFree": true,
+  "license": "Free to query through the hosted service. Substrate not redistributed.",
+  "creator": {
+    "@type": "Organization",
+    "name": "codeitall"
+  },
+  "url": "https://api.codeitall.dev/v1/compare_implementations?task=base64",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://api.codeitall.dev/openapi.json"
+    }
+  ],
+  "result": {
+    "tool": "compare_implementations",
+    "language": "rust",
+    "family": "base64",
+    "n_probed_candidates": 39,
+    "n_attempted": 202,
+    "probe_template_version": "phase-1.7/probe-v0.1.0",
+    "input_set_sha256": "0ba2da751ab674bedacad4c13e39b572f08effd4d3d9bca8491bb37a5e5a590e",
+    "implementations": [
+      {
+        "crate_name": "ascii85",
+        "crate_version": "0.2.1",
+        "fn_name": "decode",
+        "probe_run_id": 236,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "ok",
+            "value_repr": "[0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "+",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "ok",
+            "value_repr": "[193]",
+            "error_repr": null
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[100]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[100, 191, 147]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[100, 192, 4]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[100, 192, 5]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "ok",
+            "value_repr": "[100, 200, 242, 81]",
+            "error_repr": null
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "ok",
+            "value_repr": "[100, 201, 155, 174, 113]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[200, 139, 54, 182, 119]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[200, 139, 54, 182, 119, 22]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Missaligned z in input\""
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Missaligned z in input\""
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[176, 59, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "ok",
+            "value_repr": "[176, 59, 170, 55, 113]",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "b45",
+        "crate_version": "0.1.0",
+        "fn_name": "decode_to_bytes",
+        "probe_run_id": 366,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"!!!\" }"
+          },
+          {
+            "input": "+",
+            "outcome": "ok",
+            "value_repr": "[40]",
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"_-\" }"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[10]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[1, 204]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"AA==\" }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"AAA=\" }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[80, 230, 10]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"AB====\" }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"ABC=DEF\" }"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"aGVsbG8\" }"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"aGVsbG8=\" }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"Pz8/\" }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"Pz8_\" }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"YWJj\" }"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodingError { msg: \"Error decoding base45 string\", input: \"YWJj DEF\" }"
+          }
+        ]
+      },
+      {
+        "crate_name": "b58",
+        "crate_version": "0.1.2",
+        "fn_name": "decode",
+        "probe_run_id": 247,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('!')"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('+')"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('_')"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[9]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[2, 19]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('=')"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('=')"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[27, 67, 191]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('=')"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('=')"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[1, 38, 221, 164, 158, 101]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('=')"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('/')"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter('_')"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[93, 203, 240]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(' ')"
+          }
+        ]
+      },
+      {
+        "crate_name": "base122-rs",
+        "crate_version": "0.1.4",
+        "fn_name": "decode",
+        "probe_run_id": 362,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "ok",
+            "value_repr": "[66, 133]",
+            "error_repr": null
+          },
+          {
+            "input": "+",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "ok",
+            "value_repr": "[190]",
+            "error_repr": null
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[131]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[131, 5, 235]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[131, 6, 11]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[131, 6, 12]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "ok",
+            "value_repr": "[131, 9, 235, 215, 175]",
+            "error_repr": null
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "ok",
+            "value_repr": "[131, 10, 27, 216, 145, 99]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[195, 30, 183, 60, 81, 220]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[195, 30, 183, 60, 81, 220, 61]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "ok",
+            "value_repr": "[161, 233, 194]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "ok",
+            "value_repr": "[161, 233, 197]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[179, 94, 86]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "ok",
+            "value_repr": "[179, 94, 86, 164, 17, 34, 198]",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "base24",
+        "crate_version": "0.4.1",
+        "fn_name": "decode",
+        "probe_run_id": 367,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeUnsupportedCharacter('=')"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeUnsupportedCharacter('V')"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeInputLengthInvalid"
+          }
+        ]
+      },
+      {
+        "crate_name": "base36",
+        "crate_version": "0.0.1",
+        "fn_name": "decode",
+        "probe_run_id": 212,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "DecodeError"
+          }
+        ]
+      },
+      {
+        "crate_name": "base58-monero",
+        "crate_version": "2.0.0",
+        "fn_name": "decode",
+        "probe_run_id": 222,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Overflow"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Overflow"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          }
+        ]
+      },
+      {
+        "crate_name": "base58-monero",
+        "crate_version": "2.0.0",
+        "fn_name": "decode_check",
+        "probe_run_id": 223,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Overflow"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidSymbol"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Overflow"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBlockSize"
+          }
+        ]
+      },
+      {
+        "crate_name": "base-62",
+        "crate_version": "0.1.1",
+        "fn_name": "decode",
+        "probe_run_id": 226,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '!' }"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '+' }"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '_' }"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[118]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '=' }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '=' }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[246, 78]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '=' }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '=' }"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[87, 132, 80, 32]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '=' }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '/' }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: '_' }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[202, 198]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadCharacter { character: ' ' }"
+          }
+        ]
+      },
+      {
+        "crate_name": "base64-simd",
+        "crate_version": "0.8.0",
+        "fn_name": "forgiving_decode_to_vec",
+        "probe_run_id": 130,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Base64Error\""
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Base64Error\""
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Base64Error\""
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Base64Error\""
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[0, 0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Base64Error\""
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Base64Error\""
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "ok",
+            "value_repr": "[63, 63, 63]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Base64Error\""
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[97, 98, 99]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "ok",
+            "value_repr": "[97, 98, 99, 12, 65]",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "base85",
+        "crate_version": "2.0.0",
+        "fn_name": "decode",
+        "probe_run_id": 221,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "ok",
+            "value_repr": "[195, 52]",
+            "error_repr": null
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedEof"
+          },
+          {
+            "input": "_-",
+            "outcome": "ok",
+            "value_repr": "[248]",
+            "error_repr": null
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedEof"
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[31]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[31, 131, 37]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[31, 124, 23]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[31, 124, 2]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnexpectedEof"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "ok",
+            "value_repr": "[31, 133, 174, 100, 44]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[112, 156, 20, 174, 50]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[112, 156, 20, 174, 50, 27]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(47)"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "ok",
+            "value_repr": "[80, 5, 144]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[106, 247, 164]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter(32)"
+          }
+        ]
+      },
+      {
+        "crate_name": "bech32",
+        "crate_version": "0.11.1",
+        "fn_name": "decode",
+        "probe_run_id": 207,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('!')))"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('+')))"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('-')))"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('b')))"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('/')))"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('_')))"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MixedCase))"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar(' ')))"
+          }
+        ]
+      },
+      {
+        "crate_name": "bech32grs",
+        "crate_version": "0.11.0",
+        "fn_name": "decode",
+        "probe_run_id": 332,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('!')))"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('+')))"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('-')))"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MissingSeparator))"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('b')))"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('=')))"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('/')))"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar('_')))"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(MixedCase))"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Parse(Char(InvalidChar(' ')))"
+          }
+        ]
+      },
+      {
+        "crate_name": "binary-utils",
+        "crate_version": "0.1.1",
+        "fn_name": "decode_binary",
+        "probe_run_id": 279,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "+",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "A",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "YWJj",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          }
+        ]
+      },
+      {
+        "crate_name": "blockscout-display-bytes",
+        "crate_version": "1.1.0",
+        "fn_name": "decode_hex",
+        "probe_run_id": 267,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: '_', index: 0 }"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[170]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: '=', index: 2 }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: '=', index: 3 }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[170, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: '=', index: 2 }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: 'G', index: 1 }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: 'P', index: 0 }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: 'P', index: 0 }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: 'Y', index: 0 }"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidHexCharacter { c: 'Y', index: 0 }"
+          }
+        ]
+      },
+      {
+        "crate_name": "bs62",
+        "crate_version": "0.1.4",
+        "fn_name": "decode_data",
+        "probe_run_id": 216,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '!'\""
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '+'\""
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '_'\""
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[223, 157, 218, 160, 188]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '/'\""
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '_'\""
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character ' '\""
+          }
+        ]
+      },
+      {
+        "crate_name": "bs62",
+        "crate_version": "0.1.4",
+        "fn_name": "decode_data_forgiving",
+        "probe_run_id": 217,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '!'\""
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '+'\""
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '_'\""
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[223, 157, 218, 160, 188]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '='\""
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '/'\""
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character '_'\""
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Encoded data is invalid: Encoded data must begin with a `0x01` magic byte.\""
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"Invalid character ' '\""
+          }
+        ]
+      },
+      {
+        "crate_name": "cash_addr",
+        "crate_version": "0.1.0",
+        "fn_name": "decode",
+        "probe_run_id": 241,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"\")"
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"!!!\")"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"+\")"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"_-\")"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"A\")"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"AA\")"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"AA==\")"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"AAA=\")"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"AAAA\")"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"AB====\")"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"ABC=DEF\")"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"aGVsbG8\")"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"aGVsbG8=\")"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"Pz8/\")"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"Pz8_\")"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"YWJj\")"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidAddressFormat(\"YWJj DEF\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "data-url",
+        "crate_version": "0.3.2",
+        "fn_name": "decode_to_vec",
+        "probe_run_id": 131,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBase64(UnexpectedSymbol(33))"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBase64(LoneAlphabetSymbol)"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBase64(UnexpectedSymbol(95))"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBase64(LoneAlphabetSymbol)"
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[0, 0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBase64(Padding)"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBase64(AlphabetSymbolAfterPadding)"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "ok",
+            "value_repr": "[63, 63, 63]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidBase64(UnexpectedSymbol(95))"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[97, 98, 99]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "ok",
+            "value_repr": "[97, 98, 99, 12, 65]",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "ecvrf-rs",
+        "crate_version": "1.0.0",
+        "fn_name": "decode_hex",
+        "probe_run_id": 307,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "+",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "A",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[170]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[170, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          }
+        ]
+      },
+      {
+        "crate_name": "englishid",
+        "crate_version": "0.3.1",
+        "fn_name": "decode",
+        "probe_run_id": 347,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"\")"
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"!!!\")"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"+\")"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"_\")"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"A\")"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"AA\")"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"AA==\")"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"AAA=\")"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"AAAA\")"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"AB====\")"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"ABC=DEF\")"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"aGVsbG8\")"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"aGVsbG8=\")"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"Pz8/\")"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"Pz8_\")"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"YWJj\")"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnknownWord(\"YWJj DEF\")"
+          }
+        ]
+      },
+      {
+        "crate_name": "fast-thumbhash",
+        "crate_version": "0.2.0",
+        "fn_name": "base91_decode",
+        "probe_run_id": 317,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "ok",
+            "value_repr": "[72, 214]",
+            "error_repr": null
+          },
+          {
+            "input": "+",
+            "outcome": "ok",
+            "value_repr": "[70]",
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "()"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[0, 0, 235]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[0, 192, 215]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[0, 0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "ok",
+            "value_repr": "[91, 128, 117, 179]",
+            "error_repr": null
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "ok",
+            "value_repr": "[91, 32, 108, 191, 133]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[60, 34, 247, 245, 8]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[60, 34, 247, 245, 136, 205]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "ok",
+            "value_repr": "[48, 242, 69]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "ok",
+            "value_repr": "[48, 18, 195]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[234, 71, 143]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "ok",
+            "value_repr": "[234, 71, 143, 173, 133, 229]",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "ffi_utils",
+        "crate_version": "0.17.0",
+        "fn_name": "base64_decode",
+        "probe_run_id": 270,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(0, 33)"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidLength"
+          },
+          {
+            "input": "_-",
+            "outcome": "ok",
+            "value_repr": "[255]",
+            "error_repr": null
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidLength"
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[0, 0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(2, 61)"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(3, 61)"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(3, 47)"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "ok",
+            "value_repr": "[63, 63, 63]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[97, 98, 99]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(4, 32)"
+          }
+        ]
+      },
+      {
+        "crate_name": "hex-conservative",
+        "crate_version": "1.1.0",
+        "fn_name": "decode_to_vec",
+        "probe_run_id": 269,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLengthString(OddLengthStringError { len: 3 })"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLengthString(OddLengthStringError { len: 1 })"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 95, pos: 0 })"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLengthString(OddLengthStringError { len: 1 })"
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[170]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 61, pos: 2 })"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 61, pos: 3 })"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[170, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 61, pos: 2 })"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLengthString(OddLengthStringError { len: 7 })"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLengthString(OddLengthStringError { len: 7 })"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 71, pos: 1 })"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 80, pos: 0 })"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 80, pos: 0 })"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 89, pos: 0 })"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidChar(InvalidCharError { invalid: 89, pos: 0 })"
+          }
+        ]
+      },
+      {
+        "crate_name": "hex-utilities",
+        "crate_version": "0.1.5",
+        "fn_name": "decode_hex",
+        "probe_run_id": 287,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[10]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[170]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[170, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          }
+        ]
+      },
+      {
+        "crate_name": "kvds",
+        "crate_version": "0.2.0",
+        "fn_name": "decode_from_file",
+        "probe_run_id": 382,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "IOError(Os { code: 2, kind: NotFound, message: \"No such file or directory\" })"
+          }
+        ]
+      },
+      {
+        "crate_name": "qos_hex",
+        "crate_version": "0.7.0",
+        "fn_name": "decode",
+        "probe_run_id": 262,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "LengthOne"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "LengthOne"
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[170]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[170, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OddLength"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseInt(ParseIntError { kind: InvalidDigit })"
+          }
+        ]
+      },
+      {
+        "crate_name": "rbase64",
+        "crate_version": "2.0.3",
+        "fn_name": "decode",
+        "probe_run_id": 234,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(33)"
+          },
+          {
+            "input": "+",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(95)"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[0, 0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "ok",
+            "value_repr": "[0, 16]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "ok",
+            "value_repr": "[63, 63, 63]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(95)"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[97, 98, 99]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidByte(32)"
+          }
+        ]
+      },
+      {
+        "crate_name": "seaography",
+        "crate_version": "1.1.4",
+        "fn_name": "decode_hex",
+        "probe_run_id": 260,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "+",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "A",
+            "outcome": "panic",
+            "value_repr": null,
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[170]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[170, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseIntError { kind: InvalidDigit }"
+          }
+        ]
+      },
+      {
+        "crate_name": "shrex",
+        "crate_version": "1.0.0",
+        "fn_name": "decode_alloc",
+        "probe_run_id": 231,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnevenHexCharacterCount"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnevenHexCharacterCount"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 0 }"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnevenHexCharacterCount"
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[170]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 1 }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 1 }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[170, 170]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 1 }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnevenHexCharacterCount"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnevenHexCharacterCount"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 0 }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 0 }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 0 }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 0 }"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadByte { byte: 0 }"
+          }
+        ]
+      },
+      {
+        "crate_name": "stfu8",
+        "crate_version": "0.2.7",
+        "fn_name": "decode_u8",
+        "probe_run_id": 209,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "ok",
+            "value_repr": "[33, 33, 33]",
+            "error_repr": null
+          },
+          {
+            "input": "+",
+            "outcome": "ok",
+            "value_repr": "[43]",
+            "error_repr": null
+          },
+          {
+            "input": "_-",
+            "outcome": "ok",
+            "value_repr": "[95, 45]",
+            "error_repr": null
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[65]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[65, 65]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[65, 65, 61, 61]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[65, 65, 65, 61]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[65, 65, 65, 65]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "ok",
+            "value_repr": "[65, 66, 61, 61, 61, 61]",
+            "error_repr": null
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "ok",
+            "value_repr": "[65, 66, 67, 61, 68, 69, 70]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[97, 71, 86, 115, 98, 71, 56]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[97, 71, 86, 115, 98, 71, 56, 61]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "ok",
+            "value_repr": "[80, 122, 56, 47]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "ok",
+            "value_repr": "[80, 122, 56, 95]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[89, 87, 74, 106]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "ok",
+            "value_repr": "[89, 87, 74, 106, 32, 68, 69, 70]",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "timegraph-identity",
+        "crate_version": "0.1.3",
+        "fn_name": "bytes_decode",
+        "probe_run_id": 350,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '!' at byte 0"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '+' at byte 0"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '_' at byte 0"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[9]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[2, 19]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 2"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 3"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[27, 67, 191]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 2"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 3"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[1, 38, 221, 164, 158, 101]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 7"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '/' at byte 3"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '_' at byte 3"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[93, 203, 240]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character ' ' at byte 4"
+          }
+        ]
+      },
+      {
+        "crate_name": "timegraph-identity",
+        "crate_version": "0.1.3",
+        "fn_name": "bytes_decode_lower32",
+        "probe_run_id": 351,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '!' at byte 0"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '+' at byte 0"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '_' at byte 0"
+          },
+          {
+            "input": "A",
+            "outcome": "ok",
+            "value_repr": "[9]",
+            "error_repr": null
+          },
+          {
+            "input": "AA",
+            "outcome": "ok",
+            "value_repr": "[2, 19]",
+            "error_repr": null
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 2"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 3"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[27, 67, 191]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 2"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 3"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[1, 38, 221, 164, 158, 101]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '=' at byte 7"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '/' at byte 3"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character '_' at byte 3"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[93, 203, 240]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "provided string contained invalid character ' ' at byte 4"
+          }
+        ]
+      },
+      {
+        "crate_name": "ur",
+        "crate_version": "0.4.1",
+        "fn_name": "decode",
+        "probe_run_id": 235,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidScheme"
+          }
+        ]
+      },
+      {
+        "crate_name": "viadkim",
+        "crate_version": "0.2.0",
+        "fn_name": "decode_base64",
+        "probe_run_id": 298,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "AA==",
+            "outcome": "ok",
+            "value_repr": "[0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAA=",
+            "outcome": "ok",
+            "value_repr": "[0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AAAA",
+            "outcome": "ok",
+            "value_repr": "[0, 0, 0]",
+            "error_repr": null
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "ok",
+            "value_repr": "[63, 63, 63]",
+            "error_repr": null
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "ok",
+            "value_repr": "[97, 98, 99]",
+            "error_repr": null
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Base64Error"
+          }
+        ]
+      },
+      {
+        "crate_name": "wechat-crypto",
+        "crate_version": "0.1.2",
+        "fn_name": "decode_aes_key",
+        "probe_run_id": 381,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid byte 33, offset 0."
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid byte 61, offset 1."
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid byte 95, offset 0."
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid byte 61, offset 1."
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid padding"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid byte 61, offset 2."
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Invalid byte 61, offset 3."
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "ok",
+            "value_repr": "[104, 101, 108, 108, 111]",
+            "error_repr": null
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "Encoded text cannot have a 6-bit remainder."
+          }
+        ]
+      },
+      {
+        "crate_name": "whitespace",
+        "crate_version": "2.0.0",
+        "fn_name": "decode",
+        "probe_run_id": 404,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: '!' }"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: '+' }"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: '_' }"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'A' }"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'A' }"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'A' }"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'A' }"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'A' }"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'A' }"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'A' }"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'a' }"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'a' }"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'P' }"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'P' }"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'Y' }"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharacter { pos: 0, char: 'Y' }"
+          }
+        ]
+      },
+      {
+        "crate_name": "zbase32",
+        "crate_version": "0.1.2",
+        "fn_name": "decode_full_bytes_str",
+        "probe_run_id": 219,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "\"not a zbase32 digit\""
+          }
+        ]
+      },
+      {
+        "crate_name": "zmq",
+        "crate_version": "0.10.0",
+        "fn_name": "z85_decode",
+        "probe_run_id": 208,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "ok",
+            "value_repr": "[]",
+            "error_repr": null
+          },
+          {
+            "input": "!!!",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "+",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "_-",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "A",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "AA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "AA==",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "AAA=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "AAAA",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "AB====",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "ABC=DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "aGVsbG8",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "aGVsbG8=",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "Pz8/",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "Pz8_",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "YWJj",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          },
+          {
+            "input": "YWJj DEF",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "BadLength"
+          }
+        ]
+      }
+    ]
+  }
+}
+  </script>
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 84ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <p><a href="/for-ai-agents.html">← For AI Agents</a></p>
+  <h1>compare_implementations(task=<code>base64</code>)</h1>
+  <p><strong>39 probed candidates</strong> (202 attempted runs). Observations are verbatim from the substrate's <code>probe_runs</code> + <code>probe_observations</code> rows.</p>
+  <p>Call this endpoint over MCP or HTTP:</p>
+  <pre><code>POST /v1/compare_implementations
+{"task": "base64"}</code></pre>
+  <h2>Implementations</h2>
+  <table>
+    <thead><tr><th>crate</th><th>version</th><th>fn_name</th><th>observations</th></tr></thead>
+    <tbody><tr><td><code>ascii85</code></td><td><code>0.2.1</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>b45</code></td><td><code>0.1.0</code></td><td><code>decode_to_bytes</code></td><td>17</td></tr><tr><td><code>b58</code></td><td><code>0.1.2</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>base122-rs</code></td><td><code>0.1.4</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>base24</code></td><td><code>0.4.1</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>base36</code></td><td><code>0.0.1</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>base58-monero</code></td><td><code>2.0.0</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>base58-monero</code></td><td><code>2.0.0</code></td><td><code>decode_check</code></td><td>17</td></tr><tr><td><code>base-62</code></td><td><code>0.1.1</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>base64-simd</code></td><td><code>0.8.0</code></td><td><code>forgiving_decode_to_vec</code></td><td>17</td></tr><tr><td><code>base85</code></td><td><code>2.0.0</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>bech32</code></td><td><code>0.11.1</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>bech32grs</code></td><td><code>0.11.0</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>binary-utils</code></td><td><code>0.1.1</code></td><td><code>decode_binary</code></td><td>17</td></tr><tr><td><code>blockscout-display-bytes</code></td><td><code>1.1.0</code></td><td><code>decode_hex</code></td><td>17</td></tr><tr><td><code>bs62</code></td><td><code>0.1.4</code></td><td><code>decode_data</code></td><td>17</td></tr><tr><td><code>bs62</code></td><td><code>0.1.4</code></td><td><code>decode_data_forgiving</code></td><td>17</td></tr><tr><td><code>cash_addr</code></td><td><code>0.1.0</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>data-url</code></td><td><code>0.3.2</code></td><td><code>decode_to_vec</code></td><td>17</td></tr><tr><td><code>ecvrf-rs</code></td><td><code>1.0.0</code></td><td><code>decode_hex</code></td><td>17</td></tr><tr><td><code>englishid</code></td><td><code>0.3.1</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>fast-thumbhash</code></td><td><code>0.2.0</code></td><td><code>base91_decode</code></td><td>17</td></tr><tr><td><code>ffi_utils</code></td><td><code>0.17.0</code></td><td><code>base64_decode</code></td><td>17</td></tr><tr><td><code>hex-conservative</code></td><td><code>1.1.0</code></td><td><code>decode_to_vec</code></td><td>17</td></tr><tr><td><code>hex-utilities</code></td><td><code>0.1.5</code></td><td><code>decode_hex</code></td><td>17</td></tr><tr><td><code>kvds</code></td><td><code>0.2.0</code></td><td><code>decode_from_file</code></td><td>17</td></tr><tr><td><code>qos_hex</code></td><td><code>0.7.0</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>rbase64</code></td><td><code>2.0.3</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>seaography</code></td><td><code>1.1.4</code></td><td><code>decode_hex</code></td><td>17</td></tr><tr><td><code>shrex</code></td><td><code>1.0.0</code></td><td><code>decode_alloc</code></td><td>17</td></tr><tr><td><code>stfu8</code></td><td><code>0.2.7</code></td><td><code>decode_u8</code></td><td>17</td></tr><tr><td><code>timegraph-identity</code></td><td><code>0.1.3</code></td><td><code>bytes_decode</code></td><td>17</td></tr><tr><td><code>timegraph-identity</code></td><td><code>0.1.3</code></td><td><code>bytes_decode_lower32</code></td><td>17</td></tr><tr><td><code>ur</code></td><td><code>0.4.1</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>viadkim</code></td><td><code>0.2.0</code></td><td><code>decode_base64</code></td><td>17</td></tr><tr><td><code>wechat-crypto</code></td><td><code>0.1.2</code></td><td><code>decode_aes_key</code></td><td>17</td></tr><tr><td><code>whitespace</code></td><td><code>2.0.0</code></td><td><code>decode</code></td><td>17</td></tr><tr><td><code>zbase32</code></td><td><code>0.1.2</code></td><td><code>decode_full_bytes_str</code></td><td>17</td></tr><tr><td><code>zmq</code></td><td><code>0.10.0</code></td><td><code>z85_decode</code></td><td>17</td></tr></tbody>
+  </table>
+  <p>The complete observation table — every (input, outcome, value_repr, error_repr) cell — is embedded above as <code>application/ld+json</code> structured data so an agent reading this page programmatically can lift the table without calling the API.</p>
+</body>
+</html>

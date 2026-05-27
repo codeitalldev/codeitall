@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>codeitall — API reference</title>
+<meta name="robots" content="index, follow">
+<style>body{font-family:ui-monospace,Menlo,Consolas,monospace;max-width:90ch;margin:2rem auto;padding:0 1rem}pre{white-space:pre-wrap;word-wrap:break-word;line-height:1.45}</style>
+</head>
+<body>
+<pre># codeitall — API reference
+
+&gt; **Generated** by `src/bin/api_docs.rs` on 2026-05-26 from the live substrate and the OpenAPI catalogue (the single source of truth). **Do not hand-edit.** Re-run `cargo run --release --bin api_docs` after any capability change.
+&gt;
+&gt; Substrate state at generation: **66549370 pattern_records** · **107 ok probe-runs** · **7 families**.
+
+codeitall is an experimental, queryable substrate of **Rust crate facts**, built to answer questions where documentation is silent. Answers are computed deterministically from a database — there is no language model generating them, so what you get back is recorded fact, not prediction. It is reachable now as a public HTTP API: anonymous, no key, no signup.
+
+## Two kinds of data — important distinction
+
+**1. Executed runtime behavior (a curated set).** For a specific set of functions, codeitall actually *ran* the function against a fixed list of test inputs and recorded, verbatim, what each input produced (output bytes, or the error). This is **not** "every function" — it is the probed set enumerated under *Coverage* below. Tools: `behavior_lookup`, `compare_implementations`.
+
+**2. Static signature index (broad).** Function signatures parsed from the source of the crates.io corpus — shapes, visibility, yank status, download counts, source URLs. These are **not** executed; they are structural facts. Tool: `signature_search`.
+
+## Coverage (runtime-behavior probes)
+
+`behavior_lookup` and `compare_implementations` are limited to these probed families on the Rust corpus. `signature_search` spans the full 66549370-row signature index.
+
+| family | probed runs (ok) | distinct crates |
+|---|---|---|
+| `base64` | 39 | 36 |
+| `duration` | 38 | 33 |
+| `constant_time_compare` | 18 | 13 |
+| `datetime` | 6 | 5 |
+| `json_strict_vs_permissive` | 4 | 4 |
+| `aead_encrypt_decrypt` | 1 | 1 |
+| `jwt_verify` | 1 | 1 |
+
+## Service status
+
+**Embedder: configured.** `answer_api_question`'s natural-language lane is active (free-text questions that match no rule fall back to bge-m3 cosine retrieval over the signature corpus). `signature_search` remains exact-structural (its cosine fallback is a documented stub, deferred per Phase 1.11.X plan §1).
+
+## Access modes
+
+Every tool is reachable several ways; pick the one your client supports. The five tools and their responses are identical across all of them.
+
+| Caller | How to call |
+|---|---|
+| Browse-only chat (e.g. Grok; ChatGPT-web for *reading*) | `GET /v1/{tool}?param=value` — fetch a plain URL |
+| Scripts / anything that can POST | `POST /v1/{tool}` with a JSON body |
+| ChatGPT (to actually invoke tools) | Custom GPT → add an Action → import `https://api.codeitall.dev/openapi.json` (auth: none). Function-calling, not browsing — bypasses the browse tool's refusal to open constructed URLs. |
+| Coding agents (Cursor, Claude Code, Continue, …) | **MCP** — `POST /mcp` (JSON-RPC 2.0: `tools/list`, `tools/call`) over SSE/HTTP, or `codeitall-server mcp-stdio` for local hosts |
+
+MCP is the primary intended surface for coding agents; the same five tools are exposed there. Quick check:
+
+```
+curl -sX POST https://api.codeitall.dev/mcp -H 'content-type: application/json' \
+-d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+```
+
+## Tools
+
+Base URL: `https://api.codeitall.dev` — anonymous (no key required).
+
+### `answer_api_question`
+
+Use this when an agent asks open-ended Rust API questions like 'how do I parse a duration string', 'which crate gives me HMAC verification', 'is this function deprecated', 'what's the current way to do JWT auth', or 'compare base64 crates'. Hand off free-text questions verbatim; the substrate routes them deterministically via rule-based intent detection (no LLM in the request path) and dispatches into signature_search, behavior_lookup, compare_implementations, or find_modern_equivalent as appropriate, falling back to bge-m3 cosine retrieval if no rule matches. Returns a structured verdict with routed_via, the primary recommendation, evidence, and caveats.
+
+Parameters:
+
+- `question` (string, required)
+- `language` (string, optional)
+
+```
+GET  https://api.codeitall.dev/v1/answer_api_question?question={question}&amp;language={language}
+POST https://api.codeitall.dev/v1/answer_api_question   (same fields as a JSON body)
+```
+
+Example: `GET /v1/answer_api_question?question=compare base64 crates in rust`
+
+### `signature_search`
+
+Use when the agent already knows the signature shape it wants — e.g. `fn(&amp;str) -&gt; Result&lt;Vec&lt;u8&gt;, _&gt;`, `fn(&amp;[u8]) -&gt; Result&lt;String, std::str::Utf8Error&gt;`, or `impl Iterator&lt;Item=Result&lt;...&gt;&gt;`. Returns ranked candidate functions with the crate they live in, downloads, yank status, and a compact behavior summary if probed. Pass the exact signature verbatim; the substrate normalises whitespace + identifiers on its end.
+
+Parameters:
+
+- `shape` (string, optional)
+- `shape_b64` (string, optional)
+- `language` (string, optional)
+- `top_n` (integer, optional)
+
+```
+GET  https://api.codeitall.dev/v1/signature_search?shape={shape}&amp;shape_b64={shape_b64}&amp;language={language}&amp;top_n={top_n}
+POST https://api.codeitall.dev/v1/signature_search   (same fields as a JSON body)
+```
+
+**Matching is exact** — structural-equality against the stored signature string (the cosine/semantic lane activates only when the embedder is configured). To get hits:
+- **Spacing matters:** write `fn(&amp;str) -&gt; bool` with one space each side of `-&gt;` (not `fn(&amp;str)-&gt;bool`).
+- **Agents/browse clients: prefer `shape_b64`** — pass the base64url of the signature instead of `shape`. It has no URL special characters, so fetchers that re-encode `&amp; &lt; &gt; +` or spaces (observed in Grok and ChatGPT) can't corrupt it. The pre-encoded URLs below use `shape_b64` and are safe to copy verbatim.
+- For raw `shape`, **encode spaces as `%20`, not `+`** (some clients send `+` as a literal plus, which won't match).
+- **Use concrete types, not wildcards:** `Result&lt;Duration, String&gt;` matches; `Result&lt;Duration, _&gt;` matches nothing (the literal `_` is in no stored shape). If you don't know the error type, try the error-elided form `Result&lt;Duration&gt;`, or pick from the list below.
+- **Type paths match as written in source:** `Duration`, `std::time::Duration`, and `chrono::Duration` are distinct strings.
+- **Empty `hits` means your string isn't stored verbatim** — not that no such function exists. Vary the error type / path, or copy a shape from the list below.
+
+Common shapes currently in the index — each returns hits; copy one verbatim:
+
+- `fn(&amp;str) -&gt; String` — 26340 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJnN0cikgLT4gU3RyaW5n&amp;top_n=5`
+- `fn(&amp;str) -&gt; bool` — 15838 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJnN0cikgLT4gYm9vbA&amp;top_n=5`
+- `fn(&amp;str)` — 9551 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJnN0cik&amp;top_n=5`
+- `fn(&amp;str) -&gt;::core::option::Option&lt;State&gt;` — 4948 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJnN0cikgLT46OmNvcmU6Om9wdGlvbjo6T3B0aW9uPFN0YXRlPg&amp;top_n=5`
+- `fn(&amp;str) -&gt; Option&lt;String&gt;` — 3670 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJnN0cikgLT4gT3B0aW9uPFN0cmluZz4&amp;top_n=5`
+- `fn(&amp;str) -&gt; Result&lt;()&gt;` — 3547 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJnN0cikgLT4gUmVzdWx0PCgpPg&amp;top_n=5`
+- `fn(&amp;[u8]) -&gt; String` — 3161 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJlt1OF0pIC0-IFN0cmluZw&amp;top_n=5`
+- `fn(&amp;[u8]) -&gt; bool` — 2782 matches
+  `https://api.codeitall.dev/v1/signature_search?shape_b64=Zm4oJlt1OF0pIC0-IGJvb2w&amp;top_n=5`
+
+### `behavior_lookup`
+
+Use when the agent has a specific (crate, fn_name) pair and wants to know what inputs it actually accepts at runtime — e.g. `(crate='jiff', fn_name='Timestamp::from_str')`. Returns the probe observation table verbatim from the substrate: each row is (input, outcome=ok|err|panic, value or error variant). Pass an optional `inputs` array to filter to specific input strings. The substrate's discrimination findings live here — runtime behaviour the docs are silent or wrong about.
+
+Parameters:
+
+- `crate` (string, required)
+- `fn_name` (string, required)
+
+```
+GET  https://api.codeitall.dev/v1/behavior_lookup?crate={crate}&amp;fn_name={fn_name}
+POST https://api.codeitall.dev/v1/behavior_lookup   (same fields as a JSON body)
+```
+
+Example: `GET /v1/behavior_lookup?crate=ascii85&amp;fn_name=decode`
+
+### `compare_implementations`
+
+Use when the agent asks about a task category — e.g. 'how do I parse JSON in rust', 'compare base64 crates', 'which datetime library handles RFC 3339 timezones right' — and wants the cross-implementation behavior table. The substrate returns side-by-side observations on the canonical input set: for each implementation (crate, fn_name), each input in the family's input set is paired with the observed (outcome, value_or_error_variant). Discrimination signal lives here — the docs-silent runtime behaviour pattern Guiding Principle #8 names.
+
+Parameters:
+
+- `task` (string, required)
+- `language` (string, optional)
+
+```
+GET  https://api.codeitall.dev/v1/compare_implementations?task={task}&amp;language={language}
+POST https://api.codeitall.dev/v1/compare_implementations   (same fields as a JSON body)
+```
+
+Example: `GET /v1/compare_implementations?task=base64`
+
+### `find_modern_equivalent`
+
+Use when the agent suspects the code it's about to write uses a deprecated API — e.g. `tokio::Runtime::new()` (now `tokio::runtime::Runtime::new()`), `chrono::DateTime::from_str` (now feature-gated), or any path that points to a yanked or RustSec-advisory'd crate version. The substrate returns the current canonical alternative with a behavior summary if probed, and surfaces yank-status / advisory rows verbatim.
+
+Parameters:
+
+- `deprecated_call` (string, required)
+- `language` (string, optional)
+
+```
+GET  https://api.codeitall.dev/v1/find_modern_equivalent?deprecated_call={deprecated_call}&amp;language={language}
+POST https://api.codeitall.dev/v1/find_modern_equivalent   (same fields as a JSON body)
+```
+
+Example: `GET /v1/find_modern_equivalent?deprecated_call=tokio::Runtime::new`
+
+Machine-readable catalogue: `https://api.codeitall.dev/openapi.json`
+
+## How to call
+
+Every tool answers both **POST** (JSON body) and **GET** (query parameters). The GET form exists so browse-only callers can fetch a plain URL. Access is anonymous; a `POST /v1/keys` tier exists for higher rate limits but is not required.
+
+URL-encode reserved characters in GET — **encode spaces as `%20`, NOT `+`** (several HTTP clients send `+` as a literal plus, which then fails the exact match); also `&amp;`=`%26`, `&lt;`=`%3C`, `&gt;`=`%3E`.
+
+**Discovery path:** call `compare_implementations?task=&lt;family&gt;` to see which crates+functions are probed in a family (each entry carries `crate_name` + `fn_name`), then `behavior_lookup` on a specific pair. Use `signature_search` to find functions by an exact Rust signature shape.
+
+Worked examples (each returns real data):
+
+```
+GET /v1/behavior_lookup?crate=ascii85&amp;fn_name=decode
+GET /v1/compare_implementations?task=base64
+GET /v1/signature_search?shape=fn(%26str)%20-%3E%20bool&amp;top_n=5
+GET /v1/find_modern_equivalent?deprecated_call=tokio::Runtime::new
+```
+
+## Limits &amp; roadmap
+
+- **Rust only.** No TypeScript / Python / Go yet.
+- **Runtime-behavior coverage is the probed families/functions listed under *Coverage*** — not the whole corpus.
+- **`signature_search` is exact structural matching** today; the semantic/cosine lane activates only when the embedder is configured (see *Service status*).
+- **`find_modern_equivalent` is a small hand-built rule table** plus a yank-status lookup.
+- **Stage 0 infrastructure** — a single desktop on home internet; it may occasionally be slow or unavailable.
+- Roadmap: wire the bge-m3 embedder (lights up natural-language + cosine lanes), expand probe families, then a second language. Tracked in `codeitall-plan.md` / `phase-1.11.X-plan.md`.
+</pre>
+</body>
+</html>

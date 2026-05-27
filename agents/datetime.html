@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>compare_implementations(datetime) — codeitall</title>
+  <meta name="description" content="Cross-implementation behavior table for the datetime probe family on Rust. 6 probed candidates. Deterministic substrate; no LLM in the request-response path.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents/datetime.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "codeitall compare_implementations(datetime) — Rust",
+  "description": "Cross-implementation behavior table for the 'datetime' probe family on the Rust crates.io corpus. N=6 probed candidates; observations are verbatim from the substrate's probe_runs + probe_observations rows.",
+  "variableMeasured": [
+    "input",
+    "outcome",
+    "value_repr",
+    "error_repr"
+  ],
+  "isAccessibleForFree": true,
+  "license": "Free to query through the hosted service. Substrate not redistributed.",
+  "creator": {
+    "@type": "Organization",
+    "name": "codeitall"
+  },
+  "url": "https://api.codeitall.dev/v1/compare_implementations?task=datetime",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://api.codeitall.dev/openapi.json"
+    }
+  ],
+  "result": {
+    "tool": "compare_implementations",
+    "language": "rust",
+    "family": "datetime",
+    "n_probed_candidates": 6,
+    "n_attempted": 6,
+    "probe_template_version": "phase-1.10.A/v0.1.0",
+    "input_set_sha256": "16335a7d79111ce5216b6b5f61db504ab39322395e080dd1b0cdf5f2138a41f9",
+    "implementations": [
+      {
+        "crate_name": "chrono",
+        "crate_version": "0.4.44",
+        "fn_name": "parse_from_rfc3339",
+        "probe_run_id": 510,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "0001-01-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "20/05/2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2024-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-05-20",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-05-20 14:30:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-05-20T14:30:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-05-20T14:30:00+05:30",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00+05:30",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00-08:00",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00-08:00",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00.123456789Z",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00.123456789+00:00",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00Z",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00+00:00",
+            "error_repr": null
+          },
+          {
+            "input": "2026-12-32",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-13-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-141",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "2026-W21-3",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "9999-12-31",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "May 20, 2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "now",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "tomorrow",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(TooShort)"
+          },
+          {
+            "input": "Wed, 20 May 2026 14:30:00 GMT",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ParseError(Invalid)"
+          }
+        ]
+      },
+      {
+        "crate_name": "dateparser",
+        "crate_version": "0.3.1",
+        "fn_name": "parse",
+        "probe_run_id": 514,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": " did not match any formats."
+          },
+          {
+            "input": "0001-01-01",
+            "outcome": "ok",
+            "value_repr": "0001-01-02T03:21:02.767399779Z",
+            "error_repr": null
+          },
+          {
+            "input": "20/05/2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "20/05/2026 did not match any formats."
+          },
+          {
+            "input": "2024-02-29",
+            "outcome": "ok",
+            "value_repr": "2024-03-01T03:25:00.767380419Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "2026-02-29 did not match any formats."
+          },
+          {
+            "input": "2026-05-20",
+            "outcome": "ok",
+            "value_repr": "2026-05-21T02:25:00.765259830Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20 14:30:00",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T18:30:00Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "2026-05-20T14:30:00 did not match any formats."
+          },
+          {
+            "input": "2026-05-20T14:30:00+05:30",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T09:00:00Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00-08:00",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T22:30:00Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00.123456789Z",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00.123456789Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00Z",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-12-32",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "2026-12-32 did not match any formats."
+          },
+          {
+            "input": "2026-13-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "2026-13-01 did not match any formats."
+          },
+          {
+            "input": "2026-141",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "2026-141 did not match any formats."
+          },
+          {
+            "input": "2026-W21-3",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "2026-W21-3 did not match any formats."
+          },
+          {
+            "input": "9999-12-31",
+            "outcome": "ok",
+            "value_repr": "+10000-01-01T03:25:00.767394131Z",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "garbage did not match any formats."
+          },
+          {
+            "input": "May 20, 2026",
+            "outcome": "ok",
+            "value_repr": "2026-05-21T02:25:00.767157681Z",
+            "error_repr": null
+          },
+          {
+            "input": "now",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "now did not match any formats."
+          },
+          {
+            "input": "tomorrow",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "tomorrow did not match any formats."
+          },
+          {
+            "input": "Wed, 20 May 2026 14:30:00 GMT",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00Z",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "dtparse",
+        "crate_version": "2.0.1",
+        "fn_name": "parse",
+        "probe_run_id": 515,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "NoDate"
+          },
+          {
+            "input": "0001-01-01",
+            "outcome": "ok",
+            "value_repr": "(0001-01-01T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "20/05/2026",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "2024-02-29",
+            "outcome": "ok",
+            "value_repr": "(2024-02-29T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "2026-02-29",
+            "outcome": "ok",
+            "value_repr": "(2026-02-28T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20 14:30:00",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T14:30:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T14:30:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00+05:30",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T14:30:00, Some(+05:30))",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00-08:00",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T14:30:00, Some(-08:00))",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00.123456789Z",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T14:30:00.123456789, Some(+00:00))",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00Z",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T14:30:00, Some(+00:00))",
+            "error_repr": null
+          },
+          {
+            "input": "2026-12-32",
+            "outcome": "ok",
+            "value_repr": "(2026-12-31T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "2026-13-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ImpossibleTimestamp(\"Invalid month\")"
+          },
+          {
+            "input": "2026-141",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "YearMonthDayError(\"Year already set\")"
+          },
+          {
+            "input": "2026-W21-3",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "ImpossibleTimestamp(\"Invalid month\")"
+          },
+          {
+            "input": "9999-12-31",
+            "outcome": "ok",
+            "value_repr": "(9999-12-31T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnrecognizedToken(\"garbage\")"
+          },
+          {
+            "input": "May 20, 2026",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T00:00:00, None)",
+            "error_repr": null
+          },
+          {
+            "input": "now",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnrecognizedToken(\"now\")"
+          },
+          {
+            "input": "tomorrow",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "UnrecognizedToken(\"tomorrow\")"
+          },
+          {
+            "input": "Wed, 20 May 2026 14:30:00 GMT",
+            "outcome": "ok",
+            "value_repr": "(2026-05-20T14:30:00, Some(+00:00))",
+            "error_repr": null
+          }
+        ]
+      },
+      {
+        "crate_name": "jiff",
+        "crate_version": "0.2.24",
+        "fn_name": "from_str_timestamp",
+        "probe_run_id": 511,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: expected four digit year (or leading sign for six digit year), but found end of input"
+          },
+          {
+            "input": "0001-01-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time component, which is required for parsing a timestamp"
+          },
+          {
+            "input": "20/05/2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got /"
+          },
+          {
+            "input": "2024-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time component, which is required for parsing a timestamp"
+          },
+          {
+            "input": "2026-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "parsed date is not valid: parameter 'day' for `2026-02` is invalid, must be in range `1..=28`"
+          },
+          {
+            "input": "2026-05-20",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time component, which is required for parsing a timestamp"
+          },
+          {
+            "input": "2026-05-20 14:30:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find offset component, which is required for parsing a timestamp"
+          },
+          {
+            "input": "2026-05-20T14:30:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find offset component, which is required for parsing a timestamp"
+          },
+          {
+            "input": "2026-05-20T14:30:00+05:30",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T09:00:00Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00-08:00",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T22:30:00Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00.123456789Z",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00.123456789Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00Z",
+            "outcome": "ok",
+            "value_repr": "2026-05-20T14:30:00Z",
+            "error_repr": null
+          },
+          {
+            "input": "2026-12-32",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse day in date: failed to parse two digit integer as day: parameter 'day' is not in the required range of 1..=31"
+          },
+          {
+            "input": "2026-13-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse month in date: failed to parse two digit integer as month: parameter 'month' is not in the required range of 1..=12"
+          },
+          {
+            "input": "2026-141",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse month in date: failed to parse two digit integer as month: parameter 'month' is not in the required range of 1..=12"
+          },
+          {
+            "input": "2026-W21-3",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse month in date: failed to parse two digit integer as month: invalid digit, expected 0-9 but got W"
+          },
+          {
+            "input": "9999-12-31",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time component, which is required for parsing a timestamp"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got g"
+          },
+          {
+            "input": "May 20, 2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got M"
+          },
+          {
+            "input": "now",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: expected four digit year (or leading sign for six digit year), but found end of input"
+          },
+          {
+            "input": "tomorrow",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got t"
+          },
+          {
+            "input": "Wed, 20 May 2026 14:30:00 GMT",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got W"
+          }
+        ]
+      },
+      {
+        "crate_name": "jiff",
+        "crate_version": "0.2.24",
+        "fn_name": "from_str_zoned",
+        "probe_run_id": 512,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: expected four digit year (or leading sign for six digit year), but found end of input"
+          },
+          {
+            "input": "0001-01-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "20/05/2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got /"
+          },
+          {
+            "input": "2024-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "parsed date is not valid: parameter 'day' for `2026-02` is invalid, must be in range `1..=28`"
+          },
+          {
+            "input": "2026-05-20",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-05-20 14:30:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-05-20T14:30:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-05-20T14:30:00+05:30",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-05-20T14:30:00-08:00",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-05-20T14:30:00.123456789Z",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-05-20T14:30:00Z",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "2026-12-32",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse day in date: failed to parse two digit integer as day: parameter 'day' is not in the required range of 1..=31"
+          },
+          {
+            "input": "2026-13-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse month in date: failed to parse two digit integer as month: parameter 'month' is not in the required range of 1..=12"
+          },
+          {
+            "input": "2026-141",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse month in date: failed to parse two digit integer as month: parameter 'month' is not in the required range of 1..=12"
+          },
+          {
+            "input": "2026-W21-3",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse month in date: failed to parse two digit integer as month: invalid digit, expected 0-9 but got W"
+          },
+          {
+            "input": "9999-12-31",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to find time zone annotation in square brackets, which is required for parsing a zoned datetime"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got g"
+          },
+          {
+            "input": "May 20, 2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got M"
+          },
+          {
+            "input": "now",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: expected four digit year (or leading sign for six digit year), but found end of input"
+          },
+          {
+            "input": "tomorrow",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got t"
+          },
+          {
+            "input": "Wed, 20 May 2026 14:30:00 GMT",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "failed to parse year in date: failed to parse four digit integer as year: invalid digit, expected 0-9 but got W"
+          }
+        ]
+      },
+      {
+        "crate_name": "speedate",
+        "crate_version": "0.17.0",
+        "fn_name": "parse_str",
+        "probe_run_id": 513,
+        "observations": [
+          {
+            "input": "",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TooShort"
+          },
+          {
+            "input": "0001-01-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharDateTimeSep"
+          },
+          {
+            "input": "20/05/2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharYear"
+          },
+          {
+            "input": "2024-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharDateTimeSep"
+          },
+          {
+            "input": "2026-02-29",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OutOfRangeDay"
+          },
+          {
+            "input": "2026-05-20",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharDateTimeSep"
+          },
+          {
+            "input": "2026-05-20 14:30:00",
+            "outcome": "ok",
+            "value_repr": "DateTime { date: Date { year: 2026, month: 5, day: 20 }, time: Time { hour: 14, minute: 30, second: 0, microsecond: 0, tz_offset: None } }",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00",
+            "outcome": "ok",
+            "value_repr": "DateTime { date: Date { year: 2026, month: 5, day: 20 }, time: Time { hour: 14, minute: 30, second: 0, microsecond: 0, tz_offset: None } }",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00+05:30",
+            "outcome": "ok",
+            "value_repr": "DateTime { date: Date { year: 2026, month: 5, day: 20 }, time: Time { hour: 14, minute: 30, second: 0, microsecond: 0, tz_offset: Some(19800) } }",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00-08:00",
+            "outcome": "ok",
+            "value_repr": "DateTime { date: Date { year: 2026, month: 5, day: 20 }, time: Time { hour: 14, minute: 30, second: 0, microsecond: 0, tz_offset: Some(-28800) } }",
+            "error_repr": null
+          },
+          {
+            "input": "2026-05-20T14:30:00.123456789Z",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "SecondFractionTooLong"
+          },
+          {
+            "input": "2026-05-20T14:30:00Z",
+            "outcome": "ok",
+            "value_repr": "DateTime { date: Date { year: 2026, month: 5, day: 20 }, time: Time { hour: 14, minute: 30, second: 0, microsecond: 0, tz_offset: Some(0) } }",
+            "error_repr": null
+          },
+          {
+            "input": "2026-12-32",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OutOfRangeDay"
+          },
+          {
+            "input": "2026-13-01",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "OutOfRangeMonth"
+          },
+          {
+            "input": "2026-141",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TooShort"
+          },
+          {
+            "input": "2026-W21-3",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharMonth"
+          },
+          {
+            "input": "9999-12-31",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharDateTimeSep"
+          },
+          {
+            "input": "garbage",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TooShort"
+          },
+          {
+            "input": "May 20, 2026",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharYear"
+          },
+          {
+            "input": "now",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TooShort"
+          },
+          {
+            "input": "tomorrow",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "TooShort"
+          },
+          {
+            "input": "Wed, 20 May 2026 14:30:00 GMT",
+            "outcome": "err",
+            "value_repr": null,
+            "error_repr": "InvalidCharYear"
+          }
+        ]
+      }
+    ]
+  }
+}
+  </script>
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 84ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.3rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+    code { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <p><a href="/for-ai-agents.html">← For AI Agents</a></p>
+  <h1>compare_implementations(task=<code>datetime</code>)</h1>
+  <p><strong>6 probed candidates</strong> (6 attempted runs). Observations are verbatim from the substrate's <code>probe_runs</code> + <code>probe_observations</code> rows.</p>
+  <p>Call this endpoint over MCP or HTTP:</p>
+  <pre><code>POST /v1/compare_implementations
+{"task": "datetime"}</code></pre>
+  <h2>Implementations</h2>
+  <table>
+    <thead><tr><th>crate</th><th>version</th><th>fn_name</th><th>observations</th></tr></thead>
+    <tbody><tr><td><code>chrono</code></td><td><code>0.4.44</code></td><td><code>parse_from_rfc3339</code></td><td>22</td></tr><tr><td><code>dateparser</code></td><td><code>0.3.1</code></td><td><code>parse</code></td><td>22</td></tr><tr><td><code>dtparse</code></td><td><code>2.0.1</code></td><td><code>parse</code></td><td>22</td></tr><tr><td><code>jiff</code></td><td><code>0.2.24</code></td><td><code>from_str_timestamp</code></td><td>22</td></tr><tr><td><code>jiff</code></td><td><code>0.2.24</code></td><td><code>from_str_zoned</code></td><td>22</td></tr><tr><td><code>speedate</code></td><td><code>0.17.0</code></td><td><code>parse_str</code></td><td>22</td></tr></tbody>
+  </table>
+  <p>The complete observation table — every (input, outcome, value_repr, error_repr) cell — is embedded above as <code>application/ld+json</code> structured data so an agent reading this page programmatically can lift the table without calling the API.</p>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For AI Agents — codeitall</title>
+  <meta name="description" content="codeitall is a version-pinned behavioral oracle for package APIs. Deterministic Rust agent deployment surface: 5 MCP tools, HTTP REST + OpenAPI 3.1, no generative LLM in the request-response path. Free, no signup.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://api.codeitall.dev/for-ai-agents.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebAPI",
+    "name": "codeitall",
+    "description": "A version-pinned behavioral oracle for package APIs. Five deterministic tools over MCP (stdio + SSE/HTTP) and HTTP REST. Free; anonymous one-click key minting at POST /v1/keys.",
+    "url": "https://api.codeitall.dev",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "AI coding agents"
+    },
+    "documentation": "https://api.codeitall.dev/openapi.json",
+    "termsOfService": "https://api.codeitall.dev/for-ai-agents.html#terms",
+    "provider": {
+      "@type": "Organization",
+      "name": "codeitall"
+    },
+    "potentialAction": [
+      {
+        "@type": "ConsumeAction",
+        "name": "answer_api_question",
+        "target": "https://api.codeitall.dev/v1/answer_api_question",
+        "description": "Open-ended Rust API question. Deterministic Layer 3 rule-based intent routing + Layer 4 bge-m3 cosine fallback. No generative LLM in the request-response path."
+      },
+      {
+        "@type": "ConsumeAction",
+        "name": "signature_search",
+        "target": "https://api.codeitall.dev/v1/signature_search",
+        "description": "Structural signature retrieval. Pass a Rust function signature shape (e.g. fn(&str) -> Result<Vec<u8>, _>); returns ranked candidate functions."
+      },
+      {
+        "@type": "ConsumeAction",
+        "name": "behavior_lookup",
+        "target": "https://api.codeitall.dev/v1/behavior_lookup",
+        "description": "Direct probe-table lookup for one named (crate, fn_name). Returns the per-input observation table (input, outcome, value or error variant)."
+      },
+      {
+        "@type": "ConsumeAction",
+        "name": "compare_implementations",
+        "target": "https://api.codeitall.dev/v1/compare_implementations",
+        "description": "Cross-implementation behavior table for a probe family (datetime, base64, json_strict_vs_permissive, jwt_verify, aead_encrypt_decrypt, constant_time_compare, duration, …)."
+      },
+      {
+        "@type": "ConsumeAction",
+        "name": "find_modern_equivalent",
+        "target": "https://api.codeitall.dev/v1/find_modern_equivalent",
+        "description": "Deprecation lookup. Returns current canonical alternative + yank-status / RustSec-advisory rows for the suspected crate."
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "codeitall probe-suite catalogue (Rust)",
+    "description": "Task-shaped probe families on the Rust crates.io corpus. Each family carries a canonical input set under benchmarks/phase-1.10/inputs/<family>.json and N probed candidates with verbatim probe_runs / probe_observations rows. The catalogue is task-named because cross-implementation behavioral comparison is the codeitall differentiator; tasks are the unit at which behavior is comparable across crates.",
+    "keywords": ["rust", "crates.io", "probe", "behavior", "differential testing"],
+    "license": "Free to query through the hosted service. Substrate not redistributed.",
+    "variableMeasured": [
+      "input",
+      "outcome (ok / err / panic)",
+      "value_repr",
+      "error_repr"
+    ],
+    "hasPart": [
+      {"@type": "DataCatalog", "name": "String parsing", "keywords": ["duration", "datetime", "url", "path-normalization", "query-string", "ip-cidr", "semver"]},
+      {"@type": "DataCatalog", "name": "Encoding / decoding", "keywords": ["base64", "base32", "hex", "percent-encoding", "mime-rfc2047", "jwt", "pem", "json", "csv", "yaml", "toml"]},
+      {"@type": "DataCatalog", "name": "Compression / decompression", "keywords": ["gzip", "brotli", "zstd", "deflate", "lz4", "snappy"]},
+      {"@type": "DataCatalog", "name": "Cryptography", "keywords": ["constant-time-compare", "pbkdf2", "scrypt", "argon2", "aead", "signature-verify", "hash"]},
+      {"@type": "DataCatalog", "name": "Sanitisation / validation", "keywords": ["html-sanitize", "sql-quote", "shell-arg-quote", "regex-compile", "glob", "email"]},
+      {"@type": "DataCatalog", "name": "I/O semantics", "keywords": ["http-client-timeout-cascade", "task-cancellation", "file-watch-coalescing", "retry-backoff"]}
+    ]
+  }
+  </script>
+
+  <style>
+    body { font-family: ui-monospace, Menlo, Consolas, monospace; max-width: 72ch; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #111; }
+    h1, h2 { border-bottom: 1px solid #ddd; padding-bottom: 0.2em; }
+    code, pre { background: #f5f5f5; padding: 0.1em 0.3em; border-radius: 3px; }
+    pre { padding: 0.8rem; overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border-bottom: 1px solid #eee; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #fafafa; }
+  </style>
+</head>
+<body>
+
+<h1>codeitall — For AI Agents</h1>
+
+<p><strong>codeitall is a version-pinned behavioral oracle for package
+APIs.</strong> An AI coding agent reaches for codeitall when the user
+asks an open-ended question about Rust crate APIs and the answer
+depends on cross-implementation runtime behaviour that documentation
+is silent or wrong about.</p>
+
+<p>The hot path is deterministic: every response is computed from a
+Postgres-backed substrate (66.5M <code>pattern_records</code> +
+7 probe families at Phase 1.11 launch). <strong>No generative LLM
+sits between an agent's request and our response.</strong> Layer 3 is
+rule-based intent routing; Layer 4 is bge-m3 cosine fallback. Same
+request bytes → same response bytes.</p>
+
+<h2 id="tools">The five tools</h2>
+
+<table>
+  <thead>
+    <tr><th>Tool</th><th>What it answers</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>answer_api_question(question, language='rust')</code></td>
+      <td>Open-ended free-text Rust API questions. Default-reach tool. Routes deterministically into one of the four focused tools below, or falls back to bge-m3 cosine retrieval.</td>
+    </tr>
+    <tr>
+      <td><code>signature_search(shape, language='rust')</code></td>
+      <td>"What functions match this signature?" Pass a Rust signature shape verbatim — e.g. <code>fn(&amp;str) -&gt; Result&lt;Vec&lt;u8&gt;, _&gt;</code>.</td>
+    </tr>
+    <tr>
+      <td><code>behavior_lookup(crate, fn_name, inputs?)</code></td>
+      <td>"What does this specific function actually do at runtime?" Returns the probe observation table verbatim.</td>
+    </tr>
+    <tr>
+      <td><code>compare_implementations(task, language='rust')</code></td>
+      <td>Cross-implementation behavior table for a probe family (datetime, base64, json_strict_vs_permissive, jwt_verify, aead_encrypt_decrypt, constant_time_compare, duration, …).</td>
+    </tr>
+    <tr>
+      <td><code>find_modern_equivalent(deprecated_call, language='rust')</code></td>
+      <td>"What's the current way to do X?" Returns the current canonical alternative plus yank-status / RustSec-advisory rows.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Full trigger-text per tool: <a href="/api-reference.html"><code>/api-reference.html</code></a>. Full OpenAPI 3.1 spec: <a href="/openapi.json"><code>/openapi.json</code></a>.</p>
+
+<h2 id="zero-friction">Zero-friction key minting</h2>
+
+<pre><code>curl -sX POST https://api.codeitall.dev/v1/keys \
+     -H 'content-type: application/json' \
+     -d '{}'</code></pre>
+
+<p>Returns <code>{"key": "&lt;64-hex&gt;", "daily_quota": 10000, "issued_at": "&lt;RFC 3339&gt;"}</code>. Per-IP issuance cap: 10 keys/day. Per-key baseline quota: 10,000 queries/day. No-auth tier: 50 queries/day per IP. The raw key is returned exactly once; the substrate stores only the SHA-256 hash so a server compromise can't impersonate users.</p>
+
+<h2 id="transports">Transports</h2>
+
+<ul>
+  <li><strong>MCP stdio</strong> — Claude Code / Cursor / local-install MCP hosts. <code>codeitall-server mcp-stdio</code> reads JSON-RPC 2.0 line-delimited requests on stdin, writes responses on stdout. Add to your MCP config as a local command.</li>
+  <li><strong>MCP SSE/HTTP</strong> — ChatGPT-via-Actions / network-installed agents. POST JSON-RPC 2.0 to <code>https://api.codeitall.dev/mcp</code>.</li>
+  <li><strong>HTTP REST</strong> — five POST endpoints under <code>/v1/&lt;tool&gt;</code>. OpenAPI 3.1 spec at <code>/openapi.json</code>.</li>
+</ul>
+
+<h2 id="example">End-to-end example</h2>
+
+<pre><code>$ KEY=$(curl -sX POST https://api.codeitall.dev/v1/keys -d '{}' \
+        -H 'content-type: application/json' | jq -r .key)
+$ curl -sX POST https://api.codeitall.dev/v1/compare_implementations \
+       -H "authorization: Bearer $KEY" \
+       -H 'content-type: application/json' \
+       -d '{"task": "datetime"}' | jq '.implementations[].crate_name'
+"chrono"
+"dateparser"
+"dtparse"
+"jiff"
+"jiff"
+"speedate"</code></pre>
+
+<h2 id="catalogue">Task-family catalogue (§27)</h2>
+
+<p>The catalogue below is the locked v0.2 cross-cutting list (from <code>codeitall-plan.md</code> §27). Pass any of these as the <code>task</code> parameter to <code>compare_implementations</code>. Items marked <em>(substrate-ready)</em> are registered but probe-data-empty at Phase 1.11 launch under locked OQ-1.11.H=H1; counts grow as the background production sweep runs.</p>
+
+<ul>
+  <li><strong>String parsing</strong>: duration, datetime, url, path-normalization, query-string, ip-cidr, semver.</li>
+  <li><strong>Encoding / decoding</strong>: base64, base32, hex, percent-encoding, mime-rfc2047, jwt_verify, pem, json_strict_vs_permissive, csv, yaml, toml.</li>
+  <li><strong>Compression / decompression</strong>: gzip, brotli, zstd, deflate, lz4, snappy.</li>
+  <li><strong>Cryptography</strong>: constant_time_compare, pbkdf2, scrypt, argon2, aead_encrypt_decrypt, signature-verify, hash.</li>
+  <li><strong>Sanitisation / validation</strong>: html-sanitize, sql-quote, shell-arg-quote, regex-compile, glob, email.</li>
+  <li><strong>I/O semantics</strong>: http_client_timeout_cascade <em>(substrate-ready)</em>, task-cancellation, file-watch-coalescing, retry-backoff.</li>
+</ul>
+
+<h2 id="determinism">Determinism contract</h2>
+
+<p>Same request bytes → same response bytes, modulo <code>received_at</code> / <code>run_started_at</code> timestamps. The Layer 3 router is rule-based (regex + qualified-name detection + verb-pattern dictionaries). The Layer 4 fallback uses bge-m3 — a deterministic text→vector embedder. No token sampling, no prose synthesis, no variance.</p>
+
+<p>Pinned in source by <code>crates/codeitall-server/tests/test_no_llm_in_hot_path.rs</code>.</p>
+
+<h2 id="terms">Terms</h2>
+
+<p>Free to query through the hosted service. The codeitall substrate is proprietary; the corpus is derived from public source (crates.io, docs.rs) but the indexed substrate is not redistributed. No signup, no paid tier, no human marketing surface. Stage 0 (Spark + Cloudflare Tunnel) is the v1 deployment substrate; home-internet uptime is what it is.</p>
+
+</body>
+</html>
